@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Umapilled Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="sourcee/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="bi bi-arrow-left-short"></i> Back</a>
+      <span class="navbar-text ms-2">Admin Panel</span>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    <div class="alert alert-warning">
+      Admin access only. Ensure Supabase RLS policies allow writes for your anon key in development.
+    </div>
+
+    <ul class="nav nav-tabs mb-3" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-characters" data-bs-toggle="tab" data-bs-target="#pane-characters" type="button" role="tab">Character Banners</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-supports" data-bs-toggle="tab" data-bs-target="#pane-supports" type="button" role="tab">Support Card Banners</button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="pane-characters" role="tabpanel">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div class="fw-semibold">Rows</div>
+          <button class="btn btn-sm btn-primary" id="addCharRow"><i class="bi bi-plus-lg"></i> Add New</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-sm align-middle">
+            <thead><tr><th>ID</th><th>Name</th><th>Version</th><th>Rarity</th><th>Rate</th><th>Start</th><th>End</th><th>Rerun</th><th>Limited</th><th>Image</th><th style="width:120px"></th></tr></thead>
+            <tbody id="charTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="pane-supports" role="tabpanel">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div class="fw-semibold">Rows</div>
+          <button class="btn btn-sm btn-primary" id="addSuppRow"><i class="bi bi-plus-lg"></i> Add New</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-sm align-middle">
+            <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Rarity</th><th>Rate</th><th>Start</th><th>End</th><th>Rerun</th><th>Limited</th><th>Image</th><th style="width:120px"></th></tr></thead>
+            <tbody id="suppTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Initialize client for admin page
+    window.supabaseClient = supabase.createClient(
+      'https://guceyenzaktklmpbcjph.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd1Y2V5ZW56YWt0a2xtcGJjanBoIiwicm9zZSI6ImFub24iLCJpYXQiOjE3NTk2MzkwNjEsImV4cCI6MjA3NTIxNTA2MX0.XrSUj3Fp4FnhSJRKJesIM5x_YFT14m-pOaCfAOEiNBI'
+    );
+  </script>
+  <script src="sourcee/admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

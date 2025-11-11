@@ -3,6 +3,7 @@ const supabaseUrl = 'https://guceyenzaktklmpbcjph.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd1Y2V5ZW56YWt0a2xtcGJjanBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk2MzkwNjEsImV4cCI6MjA3NTIxNTA2MX0.XrSUj3Fp4FnhSJRKJesIM5x_YFT14m-pOaCfAOEiNBI';
 
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+window.supabaseClient = supabaseClient; // expose for admin
 
 // State
 let allBanners = [];
@@ -228,6 +229,15 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
     var changelogModal = new bootstrap.Modal(document.getElementById('changelogModal'));
     changelogModal.show();
+
+    // Admin link
+    const adminLink = document.getElementById('adminLink');
+    adminLink?.addEventListener('click', function(e){
+        e.preventDefault();
+        var adminModal = new bootstrap.Modal(document.getElementById('adminModal'));
+        adminModal.show();
+        window.dispatchEvent(new Event('admin:open'));
+    });
 
     renderToday();
 
