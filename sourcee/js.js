@@ -105,29 +105,53 @@ function sortByStartDesc(list) {
 function applyFilters() {
     let list = sortByStartDesc(allBanners);
 
-    // View-specific base filter
-    if (filters.view === 'timeline' && !filters.showMissed) {
+    // Hide missed when toggleMissed is off (timeline only)
+    const showMissed = document.getElementById('toggleMissed')?.checked;
+    if (!showMissed) {
         list = list.filter(x => (diffDaysFromToday(x.start_date) ?? 0) >= 0);
     }
 
     // Year
-    if (filters.year) {
+    const yearSel = document.getElementById('filterYear');
+    const typeSel = document.getElementById('filterType');
+    const searchInput = document.getElementById('filterSearch');
+
+    const year = yearSel?.value || '';
+    const type = typeSel?.value || '';
+    const search = searchInput?.value || '';
+
+    if (year) {
         list = list.filter(x => {
             const d = parseDate(x.start_date);
-            return d && d.getFullYear().toString() === filters.year;
+            return d && d.getFullYear().toString() === year;
         });
     }
-    // Type
-    if (filters.type) {
-        list = list.filter(x => x.table === filters.type);
+    if (type) {
+        list = list.filter(x => x.table === type);
     }
-    // Search
-    if (filters.search) {
-        const q = filters.search.toLowerCase();
+    if (search) {
+        const q = search.toLowerCase();
         list = list.filter(x => x.name?.toLowerCase().includes(q));
     }
 
     renderBanners(list);
+    populateBannerSelect(list);
+}
+
+function populateBannerSelect(list){
+    const sel = document.getElementById('bannerSelect');
+    if (!sel) return;
+    sel.innerHTML = '<option value="">Select a banner...</option>' +
+        list.map(b => `<option value="${b.id}">${b.name} — ${formatDate(b.start_date)}</option>`).join('');
+}
+
+function selectBannerById(id){
+    const banner = allBanners.find(b => b.id === id);
+    if (!banner) return;
+    window.dispatchEvent(new CustomEvent('banner:selected', { detail: banner }));
+    // Scroll to card if present
+    const el = document.querySelector(`[data-banner-id="${id}"]`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function renderBanners(banners) {
@@ -147,7 +171,7 @@ function renderBanners(banners) {
         const col = document.createElement('div');
         col.className = 'col-12';
         col.innerHTML = `
-            <div class="banner-card ${isPast ? 'past' : ''}">
+            <div class="banner-card ${isPast ? 'past' : ''}" data-banner-id="${item.id}" role="button">
                 ${item.banner_image ? `<img src="${item.banner_image}" alt="${item.name}">` : ''}
                 <div class="content">
                     <div class="d-flex justify-content-between align-items-start">
@@ -158,6 +182,7 @@ function renderBanners(banners) {
                     <div class="mt-1">Start: <strong>${formatDate(item.start_date)}</strong>${item.end_date ? ` · End: <strong>${formatDate(item.end_date)}</strong>` : ''}</div>
                 </div>
             </div>`;
+        col.querySelector('.banner-card').addEventListener('click', () => selectBannerById(item.id));
         container.appendChild(col);
     });
 }
@@ -199,16 +224,31 @@ document.addEventListener('DOMContentLoaded', async function() {
     populateYearFilter();
     applyFilters();
 
-    // Wire filters
-    const viewMode = document.getElementById('viewMode');
-    const toggleMissed = document.getElementById('toggleMissed');
-    const filterYear = document.getElementById('filterYear');
-    const filterType = document.getElementById('filterType');
-    const filterSearch = document.getElementById('filterSearch');
+    // Wire filters & UI
+    ['toggleMissed','filterYear','filterType','filterSearch'].forEach(id => {
+        const el = document.getElementById(id);
+        el?.addEventListener('input', applyFilters);
+        el?.addEventListener('change', applyFilters);
+    });
 
-    viewMode?.addEventListener('change', e => { filters.view = e.target.value; applyFilters(); });
-    toggleMissed?.addEventListener('change', e => { filters.showMissed = e.target.checked; applyFilters(); });
-    filterYear?.addEventListener('change', e => { filters.year = e.target.value; applyFilters(); });
-    filterType?.addEventListener('change', e => { filters.type = e.target.value; applyFilters(); });
-    filterSearch?.addEventListener('input', e => { filters.search = e.target.value; applyFilters(); });
+    const browseToggle = document.getElementById('browseAllToggle');
+    const bannerSelect = document.getElementById('bannerSelect');
+    const container = document.getElementById('bannersContainer');
+
+    function updateBrowseMode(){
+        const browse = browseToggle?.checked;
+        if (browse){
+            bannerSelect.style.display = 'none';
+            container.parentElement.style.display = '';
+        } else {
+            bannerSelect.style.display = '';
+            container.parentElement.style.display = 'none';
+        }
+    }
+    browseToggle?.addEventListener('change', updateBrowseMode);
+    bannerSelect?.addEventListener('change', (e) => {
+        const id = e.target.value;
+        if (id) selectBannerById(id);
+    });
+    updateBrowseMode();
 });

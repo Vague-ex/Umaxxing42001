@@ -1,102 +1,128 @@
 (function(){
     const DAILY_INCOME = 75;
-    // Mon..Sun pattern (0=Sunday in JS, but we will map to Monday-start)
-    // We'll define for Monday-start index: 0..6 => Mon..Sun
-    const LOGIN_PATTERN = [25, 0, 25, 0, 25, 0, 75];
-
+    const LOGIN_PATTERN = [25, 0, 25, 0, 25, 0, 75]; // Mon..Sun
     const PVP_VALUES = {
         5: { promotion: 420, retention: 360, demotion: 250 },
         6: { promotion: null, retention: 420, demotion: 250 }
     };
+    const PULL_COST = 160; // approximate per example 3640 -> ~22 pulls
 
-    function nextMonday(date){
-        const d = new Date(date);
-        const day = d.getDay(); // 0..6 Sun..Sat
-        const daysToAdd = (8 - (day === 0 ? 7 : day)) % 7 || 7; // days until next Monday
-        d.setDate(d.getDate() + daysToAdd);
-        d.setHours(0,0,0,0);
-        return d;
+    function fmt(n){
+        return Number(n || 0).toLocaleString();
     }
 
-    function mondayIndex(date){
-        // Return index 0..6 for Monday..Sunday for given date
-        const day = date.getDay(); // 0 Sun .. 6 Sat
-        // Convert JS day to Monday-start index
-        return (day + 6) % 7; // Mon->0, Tue->1, ..., Sun->6
+    function parseDateStr(s){
+        if (!s) return null;
+        const parts = String(s).split('/');
+        if (parts.length === 3){
+            const d = parseInt(parts[0],10), m = parseInt(parts[1],10)-1, y = parseInt(parts[2],10);
+            const dt = new Date(y,m,d); dt.setHours(0,0,0,0); return dt;
+        }
+        const d = new Date(s); if (isNaN(d.getTime())) return null; d.setHours(0,0,0,0); return d;
+    }
+    function mondayIndex(date){ return (date.getDay() + 6) % 7; }
+
+    function countDays(from, to){
+        const a = new Date(from); a.setHours(0,0,0,0);
+        const b = new Date(to); b.setHours(0,0,0,0);
+        return Math.max(0, Math.ceil((b - a) / (1000*60*60*24)));
     }
 
-    function sumLoginBonusesUntilNextMonday(fromDate){
-        const start = new Date(fromDate);
-        start.setHours(0,0,0,0);
-        const end = nextMonday(start);
+    function sumLoginBonuses(from, to){
+        const start = new Date(from); start.setHours(0,0,0,0);
+        const end = new Date(to); end.setHours(0,0,0,0);
         let total = 0;
         for (let d = new Date(start); d < end; d.setDate(d.getDate()+1)){
-            const idx = mondayIndex(d);
-            total += LOGIN_PATTERN[idx] || 0;
+            total += LOGIN_PATTERN[mondayIndex(d)] || 0;
         }
         return total;
     }
 
-    function daysUntilNextMonday(fromDate){
-        const start = new Date(fromDate);
-        start.setHours(0,0,0,0);
-        const end = nextMonday(start);
-        const diffMs = end - start;
-        return Math.floor(diffMs / (1000*60*60*24));
+    function nextMonday(date){
+        const d = new Date(date); const day = d.getDay();
+        const add = (8 - (day === 0 ? 7 : day)) % 7 || 7; d.setDate(d.getDate()+add); d.setHours(0,0,0,0); return d;
     }
 
-    function computePvpReward(cls, outcome){
-        const v = PVP_VALUES[cls] || {};
-        const amt = v[outcome];
-        return typeof amt === 'number' ? amt : 0;
+    function countWeeklyResets(from, to){
+        let count = 0; let n = nextMonday(from);
+        while (n <= to){ count++; n.setDate(n.getDate()+7); }
+        return count;
     }
 
-    function recalc(){
-        const current = Number(document.getElementById('currentCarrats')?.value || 0);
-        const cls = Number(document.getElementById('pvpClass')?.value || 5);
-        let outcome = document.getElementById('pvpOutcome')?.value || 'retention';
-        const hovering = document.getElementById('hoverToggle')?.checked || false;
+    function pvpWeeklyRewardTotal(hovering){
+        if (hovering){
+            const c5promo = PVP_VALUES[5].promotion || 0;
+            const c6demo = PVP_VALUES[6].demotion || 0;
+            return c5promo + c6demo; // unstable swings both ways
+        }
+        return (PVP_VALUES[5].retention || 0) + (PVP_VALUES[6].retention || 0);
+    }
 
-        // Disable Promotion when class 6 is selected
-        const outcomeSel = document.getElementById('pvpOutcome');
-        if (cls === 6){
-            Array.from(outcomeSel.options).forEach(opt => {
-                if (opt.value === 'promotion') opt.disabled = true; else opt.disabled = false;
-            });
-            if (outcome === 'promotion') outcome = 'retention';
-            outcomeSel.value = outcome;
+    function getInputs(){
+        return {
+            current: Number(document.getElementById('currentCarrats')?.value || 0),
+            cls: Number(document.getElementById('pvpClass')?.value || 5), // kept for future if needed
+            outcome: document.getElementById('pvpOutcome')?.value || 'retention', // not used when hovering rule active
+            hovering: document.getElementById('hoverToggle')?.checked || false,
+            special: Number(document.getElementById('specialEvents')?.value || 0)
+        };
+    }
+
+    function recalcForBanner(banner){
+        const now = new Date(); now.setHours(0,0,0,0);
+        const start = parseDateStr(banner?.start_date);
+        const end = parseDateStr(banner?.end_date);
+
+        // Determine target horizon
+        let target = null; let days = 0;
+        if (start && start > now){
+            target = start;
+            days = countDays(now, start);
+        } else if (start && end && end > now){
+            target = end;
+            days = countDays(now, end);
         } else {
-            Array.from(outcomeSel.options).forEach(opt => { opt.disabled = false; });
+            target = now; days = 0;
         }
 
-        const today = new Date();
-        const days = daysUntilNextMonday(today);
-        const dailyIncome = days * DAILY_INCOME;
-        const loginIncome = sumLoginBonusesUntilNextMonday(today);
-        const pvpIncome = computePvpReward(cls, outcome);
+        const inputs = getInputs();
+        const dailies = days * DAILY_INCOME;
+        const weeklies = sumLoginBonuses(now, target);
+        const weeks = countWeeklyResets(now, target);
+        const pvpPerWeek = pvpWeeklyRewardTotal(inputs.hovering);
+        const pvpTotal = weeks * pvpPerWeek;
+        const special = inputs.special;
+
+        const total = inputs.current + dailies + weeklies + pvpTotal + special;
 
         // Update UI
-        document.getElementById('dailyIncome').textContent = `+${dailyIncome}`;
-        document.getElementById('loginIncome').textContent = `+${loginIncome}`;
-        document.getElementById('pvpIncome').textContent = `+${pvpIncome}`;
-        const total = dailyIncome + loginIncome + pvpIncome;
-        document.getElementById('totalIncome').textContent = `+${total}`;
-        document.getElementById('projectedCarrats').textContent = `${current + total}`;
+        document.getElementById('calcDays').textContent = `${days} days`;
+        document.getElementById('calcStarting').textContent = fmt(inputs.current);
+        document.getElementById('calcDailies').textContent = `+${fmt(dailies)}`;
+        document.getElementById('calcWeeklies').textContent = `+${fmt(weeklies)}`;
+        document.getElementById('calcPvp').textContent = `+${fmt(pvpTotal)}`;
+        document.getElementById('calcSpecial').textContent = `+${fmt(special)}`;
+        document.getElementById('calcTotal').textContent = fmt(total);
+        const pulls = Math.floor(total / PULL_COST);
+        document.getElementById('calcPulls').textContent = `This should give you about ${pulls} pulls for the banner!`;
+    }
 
-        // Hovering note (no change to math for now)
-        if (hovering){
-            // Optionally we could compute a range; keep as-is but could show tooltip later
-        }
+    function wireCommon(){
+        ['currentCarrats','pvpClass','pvpOutcome','hoverToggle','specialEvents'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el){ el.addEventListener('input', () => recalcForBanner(window.__selectedBanner)); el.addEventListener('change', () => recalcForBanner(window.__selectedBanner)); }
+        });
     }
 
     document.addEventListener('DOMContentLoaded', function(){
-        ['currentCarrats','pvpClass','pvpOutcome','hoverToggle'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el){
-                el.addEventListener('input', recalc);
-                el.addEventListener('change', recalc);
-            }
-        });
-        recalc();
+        wireCommon();
+        // Default: no banner selected, keep zeros
+        recalcForBanner(null);
+    });
+
+    // Respond to selection from right side
+    window.addEventListener('banner:selected', (e) => {
+        window.__selectedBanner = e.detail;
+        recalcForBanner(e.detail);
     });
 })();
