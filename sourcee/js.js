@@ -41,54 +41,90 @@ function calculateDaysUntil(dateString) {
 
 // Fetch Character Banners from Supabase
 async function fetchCharacterBanners() {
-    try {
-        const { data, error } = await supabaseClient
-            .from('Character Banners')
-            .select('*')
-            .order('start_date', { ascending: true });
-        
-        if (error) {
-            // Try alternative table name
-            const { data: altData, error: altError } = await supabaseClient
-                .from('character_banners')
+    const tableNames = ['Character Banners', 'character_banners', 'CharacterBanners'];
+    
+    for (const tableName of tableNames) {
+        try {
+            console.log(`Attempting to fetch from table: ${tableName}`);
+            // Try with order by first
+            let { data, error } = await supabaseClient
+                .from(tableName)
                 .select('*')
                 .order('start_date', { ascending: true });
             
-            if (altError) throw altError;
-            return altData || [];
+            // If order by fails, try without it
+            if (error && error.message && error.message.includes('column')) {
+                console.warn(`Order by failed, trying without order:`, error.message);
+                const result = await supabaseClient
+                    .from(tableName)
+                    .select('*');
+                data = result.data;
+                error = result.error;
+            }
+            
+            if (error) {
+                console.error(`Error with table ${tableName}:`, error);
+                continue; // Try next table name
+            }
+            
+            if (data && data.length > 0) {
+                console.log(`Successfully fetched ${data.length} character banners from ${tableName}`);
+                return data;
+            } else {
+                console.warn(`Table ${tableName} exists but returned no data`);
+            }
+        } catch (error) {
+            console.error(`Exception with table ${tableName}:`, error);
+            continue;
         }
-        
-        return data || [];
-    } catch (error) {
-        console.error('Error fetching character banners:', error);
-        return [];
     }
+    
+    console.error('Failed to fetch character banners from any table');
+    return [];
 }
 
 // Fetch Support Card Banners from Supabase
 async function fetchSupportCardBanners() {
-    try {
-        const { data, error } = await supabaseClient
-            .from('Support Cards Banners')
-            .select('*')
-            .order('start_date', { ascending: true });
-        
-        if (error) {
-            // Try alternative table name
-            const { data: altData, error: altError } = await supabaseClient
-                .from('support_cards_banners')
+    const tableNames = ['Support Cards Banners', 'support_cards_banners', 'SupportCardsBanners'];
+    
+    for (const tableName of tableNames) {
+        try {
+            console.log(`Attempting to fetch from table: ${tableName}`);
+            // Try with order by first
+            let { data, error } = await supabaseClient
+                .from(tableName)
                 .select('*')
                 .order('start_date', { ascending: true });
             
-            if (altError) throw altError;
-            return altData || [];
+            // If order by fails, try without it
+            if (error && error.message && error.message.includes('column')) {
+                console.warn(`Order by failed, trying without order:`, error.message);
+                const result = await supabaseClient
+                    .from(tableName)
+                    .select('*');
+                data = result.data;
+                error = result.error;
+            }
+            
+            if (error) {
+                console.error(`Error with table ${tableName}:`, error);
+                continue; // Try next table name
+            }
+            
+            if (data && data.length > 0) {
+                console.log(`Successfully fetched ${data.length} support card banners from ${tableName}`);
+                return data;
+            } else {
+                console.warn(`Table ${tableName} exists but returned no data`);
+            }
+        } catch (error) {
+            console.error(`Exception with table ${tableName}:`, error);
+            continue;
         }
-        
-        return data || [];
-    } catch (error) {
-        console.error('Error fetching support card banners:', error);
-        return [];
     }
+    
+    console.error('Failed to fetch support card banners from any table');
+    return [];
 }
 
 // Load banners when banner type is selected
@@ -102,31 +138,44 @@ async function loadBanners(bannerType) {
     document.getElementById('bannerInfo').style.display = 'none';
     
     try {
+        console.log(`Loading banners for type: ${bannerType}`);
+        
         if (bannerType === 'character') {
             if (characterBanners.length === 0) {
+                console.log('Fetching character banners from Supabase...');
                 characterBanners = await fetchCharacterBanners();
+                console.log(`Fetched ${characterBanners.length} character banners`);
             }
             currentBanners = characterBanners;
         } else if (bannerType === 'support') {
             if (supportCardBanners.length === 0) {
+                console.log('Fetching support card banners from Supabase...');
                 supportCardBanners = await fetchSupportCardBanners();
+                console.log(`Fetched ${supportCardBanners.length} support card banners`);
             }
             currentBanners = supportCardBanners;
         }
         
         // Populate dropdown
         bannerList.innerHTML = '<option value="">Select a banner...</option>';
-        currentBanners.forEach(banner => {
-            const option = document.createElement('option');
-            option.value = banner.id;
-            option.textContent = banner.name;
-            bannerList.appendChild(option);
-        });
+        
+        if (currentBanners.length === 0) {
+            bannerList.innerHTML = '<option value="">No banners found. Check console for errors.</option>';
+            console.error('No banners available to display');
+        } else {
+            currentBanners.forEach(banner => {
+                const option = document.createElement('option');
+                option.value = banner.id;
+                option.textContent = banner.name || `Banner #${banner.id}`;
+                bannerList.appendChild(option);
+            });
+            console.log(`Populated dropdown with ${currentBanners.length} banners`);
+        }
         
         bannerList.disabled = false;
     } catch (error) {
         console.error('Error loading banners:', error);
-        bannerList.innerHTML = '<option value="">Error loading banners</option>';
+        bannerList.innerHTML = '<option value="">Error loading banners. Check console.</option>';
     } finally {
         loadingBanners.style.display = 'none';
     }
