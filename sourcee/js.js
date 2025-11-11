@@ -99,8 +99,8 @@ async function fetchCharacterBanners() {
 
 // Fetch Support Card Banners from Supabase
 async function fetchSupportCardBanners() {
-    // Try the exact table name with space (singular "Card")
-    const tableNames = ['Support Card Banners', 'support_card_banners'];
+    // Table name: "Support Card Banners" (singular "Card", not "Cards")
+    const tableNames = ['Support Card Banners', 'Support Cards Banners', 'support_card_banners'];
     
     for (const tableName of tableNames) {
         try {
