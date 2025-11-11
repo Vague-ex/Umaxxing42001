@@ -41,25 +41,38 @@ function calculateDaysUntil(dateString) {
 
 // Fetch Character Banners from Supabase
 async function fetchCharacterBanners() {
-    const tableNames = ['Character Banners', 'character_banners', 'CharacterBanners'];
+    // Try the exact table name from the error hint first
+    const tableNames = ['Character Banners', 'character_banners'];
     
     for (const tableName of tableNames) {
         try {
             console.log(`Attempting to fetch from table: ${tableName}`);
-            // Try with order by first
+            
+            // First try without order by to see if table exists
             let { data, error } = await supabaseClient
                 .from(tableName)
-                .select('*')
-                .order('start_date', { ascending: true });
+                .select('*');
             
-            // If order by fails, try without it
-            if (error && error.message && error.message.includes('column')) {
-                console.warn(`Order by failed, trying without order:`, error.message);
-                const result = await supabaseClient
-                    .from(tableName)
-                    .select('*');
-                data = result.data;
-                error = result.error;
+            // If table doesn't exist, try next name
+            if (error && (error.code === 'PGRST205' || error.message?.includes('Could not find the table'))) {
+                console.error(`Table ${tableName} not found:`, error.message);
+                continue; // Try next table name
+            }
+            
+            // If we got data, try to order it (optional)
+            if (!error && data) {
+                try {
+                    const orderedResult = await supabaseClient
+                        .from(tableName)
+                        .select('*')
+                        .order('start_date', { ascending: true });
+                    if (!orderedResult.error && orderedResult.data) {
+                        data = orderedResult.data;
+                    }
+                } catch (orderError) {
+                    console.warn('Could not order by start_date, using unordered data:', orderError);
+                    // Continue with unordered data
+                }
             }
             
             if (error) {
@@ -70,8 +83,9 @@ async function fetchCharacterBanners() {
             if (data && data.length > 0) {
                 console.log(`Successfully fetched ${data.length} character banners from ${tableName}`);
                 return data;
-            } else {
+            } else if (data && data.length === 0) {
                 console.warn(`Table ${tableName} exists but returned no data`);
+                return []; // Return empty array if table exists but is empty
             }
         } catch (error) {
             console.error(`Exception with table ${tableName}:`, error);
@@ -85,25 +99,38 @@ async function fetchCharacterBanners() {
 
 // Fetch Support Card Banners from Supabase
 async function fetchSupportCardBanners() {
-    const tableNames = ['Support Cards Banners', 'support_cards_banners', 'SupportCardsBanners'];
+    // Try the exact table name with space
+    const tableNames = ['Support Cards Banners', 'support_cards_banners'];
     
     for (const tableName of tableNames) {
         try {
             console.log(`Attempting to fetch from table: ${tableName}`);
-            // Try with order by first
+            
+            // First try without order by to see if table exists
             let { data, error } = await supabaseClient
                 .from(tableName)
-                .select('*')
-                .order('start_date', { ascending: true });
+                .select('*');
             
-            // If order by fails, try without it
-            if (error && error.message && error.message.includes('column')) {
-                console.warn(`Order by failed, trying without order:`, error.message);
-                const result = await supabaseClient
-                    .from(tableName)
-                    .select('*');
-                data = result.data;
-                error = result.error;
+            // If table doesn't exist, try next name
+            if (error && (error.code === 'PGRST205' || error.message?.includes('Could not find the table'))) {
+                console.error(`Table ${tableName} not found:`, error.message);
+                continue; // Try next table name
+            }
+            
+            // If we got data, try to order it (optional)
+            if (!error && data) {
+                try {
+                    const orderedResult = await supabaseClient
+                        .from(tableName)
+                        .select('*')
+                        .order('start_date', { ascending: true });
+                    if (!orderedResult.error && orderedResult.data) {
+                        data = orderedResult.data;
+                    }
+                } catch (orderError) {
+                    console.warn('Could not order by start_date, using unordered data:', orderError);
+                    // Continue with unordered data
+                }
             }
             
             if (error) {
@@ -114,8 +141,9 @@ async function fetchSupportCardBanners() {
             if (data && data.length > 0) {
                 console.log(`Successfully fetched ${data.length} support card banners from ${tableName}`);
                 return data;
-            } else {
+            } else if (data && data.length === 0) {
                 console.warn(`Table ${tableName} exists but returned no data`);
+                return []; // Return empty array if table exists but is empty
             }
         } catch (error) {
             console.error(`Exception with table ${tableName}:`, error);
