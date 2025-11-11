@@ -66,3 +66,33 @@
             background-color: #e9ecef;
             cursor: not-allowed;
         }
+
+        /* New: Banner grid/list */
+        .banner-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background: #fff;
+            overflow: hidden;
+        }
+        .banner-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .banner-card .content {
+            padding: 12px 14px;
+        }
+        .banner-card .title {
+            font-weight: 600;
+        }
+        .banner-card .meta {
+            font-size: 0.9rem;
+        }
+        .banner-card.past {
+            filter: grayscale(1);
+            opacity: 0.65;
+        }
+        .banner-badge {
+            display: inline-block;
+            margin-right: 6px;
+        }

@@ -52,38 +52,35 @@
     </nav>
 
     <div class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
+        <div class="row g-4">
+            <!-- Left info panel -->
+            <div class="col-lg-4">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <i class="bi bi-calendar-date me-2"></i> Banner Planner
+                        <i class="bi bi-calendar3 me-2"></i> Today
                     </div>
                     <div class="card-body">
-                        <label class="form-label">Banner Type</label>
-                        <select class="form-select mb-3" id="bannerType">
-                            <option value="">Select Banner Type...</option>
-                            <option value="character">Character Banner</option>
-                            <option value="support">Support Card Banner</option>
-                        </select>
-                        <label class="form-label">Select Banner</label>
-                        <select class="form-select mb-3" id="bannerList" disabled>
-                            <option value="">Please select a banner type first</option>
-                        </select>
-                        <div id="loadingBanners" class="text-center text-muted mb-3" style="display:none;">
-                            <i class="bi bi-arrow-repeat spin"></i> Loading banners...
-                        </div>
-                        <div id="bannerInfo" class="mt-4 text-center" style="display:none;">
-                            <div class="fs-5 mb-2" id="bannerName"></div>
-                            <div class="mb-2" id="bannerImageContainer">
-                                <img id="bannerImage" src="" alt="Banner Image" class="img-fluid rounded" style="max-height: 200px; display: none;">
-                                <div class="banner-image-placeholder" id="bannerImagePlaceholder" style="display: none;">[Banner Image]</div>
-                            </div>
-                            <div class="mb-2" id="bannerDetails"></div>
-                            <div class="mb-2"><span id="bannerDays" class="highlight"></span> days from now.</div>
+                        <div class="fs-4 fw-semibold" id="currentDate"></div>
+                        <div class="text-muted" id="currentWeekday"></div>
+                        <hr>
+                        <div class="small text-muted">
+                            Banners are sorted by start date (newest first). Past banners are greyed out.
                         </div>
                     </div>
                 </div>
-                
+            </div>
+
+            <!-- Right banner list -->
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="bi bi-card-image me-2"></i> Banners
+                    </div>
+                    <div class="card-body p-2">
+                        <div id="bannersContainer" class="row g-3"></div>
+                        <div id="bannersEmpty" class="text-center text-muted py-5" style="display:none;">No banners found.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
