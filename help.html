@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Vague sumn Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8b5cf6;
+            --light-purple: #c4b5fd;
+            --dark-purple: #6d28d9;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: linear-gradient(90deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(139, 92, 246, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-purple);
+            border-color: var(--primary-purple);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-purple);
+            border-color: var(--dark-purple);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-purple);
+            border-radius: 10px;
+        }
+        
+        .alert-info {
+            background-color: #f3e8ff;
+            border-color: var(--light-purple);
+            color: var(--dark-purple);
+        }
+        
+        .list-group-item {
+            border-left: 3px solid var(--primary-purple);
+        }
+    </style>
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <strong> Uma Musume Gacha Calculator</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="help.html">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- banner -->
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold" style="color: var(--dark-purple);">Help & Guide</h1>
+            <p class="lead text-muted">Everything you need to know about planning your gacha pulls</p>
+        </div>
+
+        <!-- About Section -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0"> About This Website</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">This website is designed for <strong>Uma Musume Pretty Derby</strong> players who struggle to decide which banners to pull on and how to manage their carrats (gacha currency).</p>
+                <p>Our calculator helps you plan your pulls by calculating your daily carrat income and projecting how many carrots you'll have by the time your desired banner arrives!</p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0"> Features</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
+                                <span style="font-size: 2rem;">🥕</span>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--dark-purple);">Daily Calculator</h5>
+                                <p>Calculate your daily carrat income from various sources including login bonuses, missions, and events.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
+                                <span style="font-size: 2rem;">⚔️</span>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--dark-purple);">Weekly PVP Trials</h5>
+                                <p>Track your weekly carrot income from Team Trials (PVP) and include it in your calculations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
+                                <span style="font-size: 2rem;">📅</span>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--dark-purple);">Banner Timeline</h5>
+                                <p>Select your target banner and the calculator will estimate how many carrots you'll accumulate by that date.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
+                                <span style="font-size: 2rem;">💾</span>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--dark-purple);">Save & Load</h5>
+                                <p>Save your calculations and load them later. Never lose track of your planning!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Use -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">How to Use</h3>
+            </div>
+            <div class="card-body">
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item">
+                        <strong>Enter Your Current Carrots:</strong> Input how many carrots you currently have in your account.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Set Daily Income:</strong> Enter your daily carrot income from dailies, missions, and login bonuses.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Add Weekly PVP:</strong> Include your weekly Team Trials rewards (converted to daily average).
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Select Target Banner:</strong> Choose which upcoming banner you want to pull on.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>View Results:</strong> See the projected number of carrots you'll have by the banner date!
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Save Your Plan:</strong> Use the save feature to keep your calculations for future reference.
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Tips & Tricks -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0"> Tips & Tricks</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <strong>Pro Tip:</strong> Remember to update your daily income when new events start or when you rank up in Team Trials!
+                </div>
+                <ul>
+                    <li>Always add a buffer to your calculations - unexpected events can give bonus carrots!</li>
+                    <li>Check the Japanese server timeline (4 years ahead) to plan for future banners.</li>
+                    <li>Consider saving carrots for limited banners rather than permanent ones.</li>
+                    <li>Don't forget to include event rewards in your calculations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- External Resources -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0"> Helpful Resources</h3>
+            </div>
+            <div class="card-body">
+                <h5 style="color: var(--dark-purple);">Japanese Game Info</h5>
+                <p>For future banner predictions and game information from the Japanese server (which is 4 years ahead of global):</p>
+                <a href="https://gametora.com/umamusume" target="_blank" class="btn btn-primary">
+                    Visit GameTora Wiki
+                </a>
+                <p class="mt-3 text-muted"><small>Note: The Japanese server provides valuable insight into upcoming content, characters, and events that will eventually come to the global version.</small></p>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card mb-5">
+            <div class="card-header">
+                <h3 class="mb-0"> Frequently Asked Questions</h3>
+            </div>
+            <div class="card-body">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Minimum saved carrats?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                You'd need to typically save around 20k or garaunteed 200 pulls to hit Hard Pity. That way you'd have at least one copy when luck doesn't play with your fate.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                How accurate is the calculator?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The calculator provides estimates based on your input. Actual results may vary due to unexpected events, bonuses, or changes in your daily routine. such as the Goldship Event By the end of the Anime Collabs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Can I use this for multiple banners?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yeah kinda, you can use it to save the config and load it later. I'll make it a feature soon.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5" style="background-color: var(--light-purple);">
+        <div class="container">
+            <p class="mb-0" style="color: var(--dark-purple);">Uma Musume Gacha Calculator | Plan Your Pulls Wisely and don't be an idiot like me</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
