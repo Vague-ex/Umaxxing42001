@@ -1,11 +1,11 @@
 (function(){
     const DAILY_INCOME = 75;
-    const LOGIN_PATTERN = [25, 0, 25, 0, 25, 0, 75]; // Mon..Sun
+    const LOGIN_PATTERN = [25, 0, 25, 0, 25, 0, 75]; 
     const PVP_VALUES = {
         5: { promotion: 420, retention: 360, demotion: 250 },
         6: { promotion: null, retention: 420, demotion: 250 }
     };
-    const PULL_COST = 160; // approximate per example 3640 -> ~22 pulls
+    const PULL_COST = 150; // 1 pull is 150 carrat, will add more Classes next time ^ 
 
     function fmt(n){
         return Number(n || 0).toLocaleString();
@@ -53,7 +53,7 @@
         if (hovering){
             const c5promo = PVP_VALUES[5].promotion || 0;
             const c6demo = PVP_VALUES[6].demotion || 0;
-            return c5promo + c6demo; // unstable swings both ways
+            return c5promo + c6demo; 
         }
         return (PVP_VALUES[5].retention || 0) + (PVP_VALUES[6].retention || 0);
     }
@@ -73,7 +73,7 @@
         const start = parseDateStr(banner?.start_date);
         const end = parseDateStr(banner?.end_date);
 
-        // Determine target horizon
+        
         let target = null; let days = 0;
         if (start && start > now){
             target = start;
@@ -95,7 +95,7 @@
 
         const total = inputs.current + dailies + weeklies + pvpTotal + special;
 
-        // Update UI
+    
         document.getElementById('calcDays').textContent = `${days} days`;
         document.getElementById('calcStarting').textContent = fmt(inputs.current);
         document.getElementById('calcDailies').textContent = `+${fmt(dailies)}`;
@@ -116,11 +116,11 @@
 
     document.addEventListener('DOMContentLoaded', function(){
         wireCommon();
-        // Default: no banner selected, keep zeros
+        // Default keeps everything at 0
         recalcForBanner(null);
     });
 
-    // Respond to selection from right side
+    // updates when something happens on the right side
     window.addEventListener('banner:selected', (e) => {
         window.__selectedBanner = e.detail;
         recalcForBanner(e.detail);
