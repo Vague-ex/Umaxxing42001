@@ -4,6 +4,16 @@ const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
+// State
+let allBanners = [];
+let filters = {
+    view: 'timeline',
+    showMissed: false,
+    year: '',
+    type: '',
+    search: ''
+};
+
 // Utils
 function parseDate(dateString) {
     if (!dateString) return null;
@@ -84,6 +94,42 @@ function normalizeRows(chars, supports) {
         });
 }
 
+function sortByStartDesc(list) {
+    return list.slice().sort((a,b) => {
+        const da = parseDate(a.start_date)?.getTime() ?? 0;
+        const db = parseDate(b.start_date)?.getTime() ?? 0;
+        return db - da;
+    });
+}
+
+function applyFilters() {
+    let list = sortByStartDesc(allBanners);
+
+    // View-specific base filter
+    if (filters.view === 'timeline' && !filters.showMissed) {
+        list = list.filter(x => (diffDaysFromToday(x.start_date) ?? 0) >= 0);
+    }
+
+    // Year
+    if (filters.year) {
+        list = list.filter(x => {
+            const d = parseDate(x.start_date);
+            return d && d.getFullYear().toString() === filters.year;
+        });
+    }
+    // Type
+    if (filters.type) {
+        list = list.filter(x => x.table === filters.type);
+    }
+    // Search
+    if (filters.search) {
+        const q = filters.search.toLowerCase();
+        list = list.filter(x => x.name?.toLowerCase().includes(q));
+    }
+
+    renderBanners(list);
+}
+
 function renderBanners(banners) {
     const container = document.getElementById('bannersContainer');
     const empty = document.getElementById('bannersEmpty');
@@ -124,6 +170,13 @@ function renderToday() {
     if (dayEl) dayEl.textContent = now.toLocaleDateString(undefined, { weekday: 'long' });
 }
 
+function populateYearFilter() {
+    const select = document.getElementById('filterYear');
+    if (!select) return;
+    const years = Array.from(new Set(allBanners.map(b => parseDate(b.start_date)?.getFullYear()).filter(Boolean))).sort((a,b) => b - a);
+    select.innerHTML = '<option value="">All Years</option>' + years.map(y => `<option value="${y}">${y}</option>`).join('');
+}
+
 // Init
 document.addEventListener('DOMContentLoaded', async function() {
     // changelog
@@ -137,11 +190,25 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     renderToday();
 
-    // fetch and render
+    // fetch and normalize
     const [chars, supports] = await Promise.all([
         fetchCharacterBanners(),
         fetchSupportCardBanners()
     ]);
-    const combined = normalizeRows(chars, supports);
-    renderBanners(combined);
+    allBanners = normalizeRows(chars, supports);
+    populateYearFilter();
+    applyFilters();
+
+    // Wire filters
+    const viewMode = document.getElementById('viewMode');
+    const toggleMissed = document.getElementById('toggleMissed');
+    const filterYear = document.getElementById('filterYear');
+    const filterType = document.getElementById('filterType');
+    const filterSearch = document.getElementById('filterSearch');
+
+    viewMode?.addEventListener('change', e => { filters.view = e.target.value; applyFilters(); });
+    toggleMissed?.addEventListener('change', e => { filters.showMissed = e.target.checked; applyFilters(); });
+    filterYear?.addEventListener('change', e => { filters.year = e.target.value; applyFilters(); });
+    filterType?.addEventListener('change', e => { filters.type = e.target.value; applyFilters(); });
+    filterSearch?.addEventListener('input', e => { filters.search = e.target.value; applyFilters(); });
 });
