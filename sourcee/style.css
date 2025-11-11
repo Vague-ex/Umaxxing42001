@@ -67,7 +67,7 @@
             cursor: not-allowed;
         }
 
-        /* New: Banner grid/list */
+        /* Banner grid/list */
         .banner-card {
             border: 1px solid #eee;
             border-radius: 10px;
@@ -96,3 +96,5 @@
             display: inline-block;
             margin-right: 6px;
         }
+        .banner-card.target { border-color: #ffc107; box-shadow: 0 0 0 2px rgba(255,193,7,.25); }
+        .target-badge { background: #ffc107; color: #212529; }

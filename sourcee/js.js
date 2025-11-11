@@ -6,13 +6,10 @@ const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
 // State
 let allBanners = [];
-let filters = {
-    view: 'timeline',
-    showMissed: false,
-    year: '',
-    type: '',
-    search: ''
-};
+const STORAGE_KEY = 'target_banner_id';
+
+function getTargetId(){ try { return localStorage.getItem(STORAGE_KEY) || ''; } catch { return ''; } }
+function setTargetId(id){ try { localStorage.setItem(STORAGE_KEY, id || ''); } catch {} }
 
 // Utils
 function parseDate(dateString) {
@@ -140,9 +137,13 @@ function applyFilters() {
 
 function populateBannerSelect(list){
     const sel = document.getElementById('bannerSelect');
+    const btn = document.getElementById('btnSetTargetFromSelect');
     if (!sel) return;
     sel.innerHTML = '<option value="">Select a banner...</option>' +
         list.map(b => `<option value="${b.id}">${b.name} — ${formatDate(b.start_date)}</option>`).join('');
+    const tgt = getTargetId();
+    if (tgt) sel.value = tgt;
+    if (btn) btn.style.display = sel.style.display === 'none' ? 'none' : '';
 }
 
 function selectBannerById(id){
@@ -152,6 +153,12 @@ function selectBannerById(id){
     // Scroll to card if present
     const el = document.querySelector(`[data-banner-id="${id}"]`);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function setTarget(id){
+    setTargetId(id);
+    selectBannerById(id);
+    applyFilters(); // re-render to update target highlight
 }
 
 function renderBanners(banners) {
@@ -165,24 +172,33 @@ function renderBanners(banners) {
     }
     empty.style.display = 'none';
 
+    const tgt = getTargetId();
+
     banners.forEach(item => {
         const days = diffDaysFromToday(item.start_date);
         const isPast = days !== null && days < 0;
+        const isTarget = tgt && tgt === item.id;
         const col = document.createElement('div');
         col.className = 'col-12';
         col.innerHTML = `
-            <div class="banner-card ${isPast ? 'past' : ''}" data-banner-id="${item.id}" role="button">
+            <div class="banner-card ${isPast ? 'past' : ''} ${isTarget ? 'target' : ''}" data-banner-id="${item.id}" role="button">
                 ${item.banner_image ? `<img src="${item.banner_image}" alt="${item.name}">` : ''}
                 <div class="content">
                     <div class="d-flex justify-content-between align-items-start">
-                        <div class="title">${item.name}</div>
-                        <span class="badge bg-${item.table === 'character' ? 'primary' : 'info'} banner-badge">${item.table === 'character' ? 'Character' : 'Support'}</span>
+                        <div class="title">${item.name} ${isTarget ? '<span class="badge target-badge ms-2">Target</span>' : ''}</div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-${item.table === 'character' ? 'primary' : 'info'} banner-badge">${item.table === 'character' ? 'Character' : 'Support'}</span>
+                            <button type="button" class="btn btn-sm ${isTarget ? 'btn-warning' : 'btn-outline-warning'} set-target"><i class="bi bi-star${isTarget ? '-fill' : ''}"></i></button>
+                        </div>
                     </div>
                     <div class="text-muted meta">${item.featured || ''}</div>
                     <div class="mt-1">Start: <strong>${formatDate(item.start_date)}</strong>${item.end_date ? ` · End: <strong>${formatDate(item.end_date)}</strong>` : ''}</div>
                 </div>
             </div>`;
-        col.querySelector('.banner-card').addEventListener('click', () => selectBannerById(item.id));
+        col.querySelector('.banner-card').addEventListener('click', (e) => {
+            if (!e.target.closest('.set-target')) selectBannerById(item.id);
+        });
+        col.querySelector('.set-target').addEventListener('click', (e) => { e.stopPropagation(); setTarget(item.id); });
         container.appendChild(col);
     });
 }
@@ -233,22 +249,31 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     const browseToggle = document.getElementById('browseAllToggle');
     const bannerSelect = document.getElementById('bannerSelect');
+    const btnSetTargetFromSelect = document.getElementById('btnSetTargetFromSelect');
     const container = document.getElementById('bannersContainer');
 
     function updateBrowseMode(){
         const browse = browseToggle?.checked;
         if (browse){
             bannerSelect.style.display = 'none';
+            btnSetTargetFromSelect.style.display = 'none';
             container.parentElement.style.display = '';
         } else {
             bannerSelect.style.display = '';
+            btnSetTargetFromSelect.style.display = '';
             container.parentElement.style.display = 'none';
         }
     }
     browseToggle?.addEventListener('change', updateBrowseMode);
-    bannerSelect?.addEventListener('change', (e) => {
-        const id = e.target.value;
-        if (id) selectBannerById(id);
-    });
+    bannerSelect?.addEventListener('change', (e) => { const id = e.target.value; if (id) selectBannerById(id); });
+    btnSetTargetFromSelect?.addEventListener('click', () => { const id = bannerSelect.value; if (id) setTarget(id); });
     updateBrowseMode();
+
+    // Auto-select saved target on load
+    const tgtId = getTargetId();
+    if (tgtId){
+        selectBannerById(tgtId);
+        const sel = document.getElementById('bannerSelect');
+        if (sel) sel.value = tgtId;
+    }
 });
