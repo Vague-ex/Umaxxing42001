@@ -3,87 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help - Umapilled Project</title>
+    <title>Vague's Umapilled Project</title>
     <link rel="icon" type="image/png" href="img/carat.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-purple: #8b5cf6;
-            --light-purple: #c4b5fd;
-            --dark-purple: #6d28d9;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%);
-            min-height: 100vh;
-        }
-        
-        .navbar {
-            background: linear-gradient(90deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
-        }
-        
-        .card {
-            border: none;
-            box-shadow: 0 4px 6px rgba(139, 92, 246, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .card-header {
-            background: linear-gradient(90deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
-            color: white;
-            font-weight: bold;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-purple);
-            border-color: var(--primary-purple);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--dark-purple);
-            border-color: var(--dark-purple);
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--light-purple);
-            border-radius: 10px;
-        }
-        
-        .alert-info {
-            background-color: #f3e8ff;
-            border-color: var(--light-purple);
-            color: var(--dark-purple);
-        }
-        
-        .list-group-item {
-            border-left: 3px solid var(--primary-purple);
-        }
-    </style>
+    <link rel="stylesheet" href="sourcee/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <!-- nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <strong> Uma Musume Gacha Calculator</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="help.html">Help</a>
-                    </li>
-                </ul>
-            </div>
+<!-- nav -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <i class="bi bi-calculator-fill me-2"></i>
+            Vague's Umapilled Project
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="help.html"><i class="bi bi-question-circle-fill me-1"></i> Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Tools.html"><i class="bi bi-tools me-1"></i> Other Tools</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-bookmark-fill me-1"></i> Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://github.com/Vague-ex" target="_blank"><i class="bi bi-github me-2"></i> GitHub</a></li>
+                        <li><a class="dropdown-item" href="https://gametora.com/umamusume" target="_blank"><i class="bi bi-book me-2"></i> GameTora Wiki</a></li>
+                        <li><a class="dropdown-item" href="https://discord.gg/umamusume" target="_blank"><i class="bi bi-discord me-2"></i> Discord Community</a></li>
+                        <li><a class="dropdown-item" href="https://reddit.com/r/UmaMusume" target="_blank"><i class="bi bi-reddit me-2"></i> Subreddit</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- banner -->
     <div class="container mt-5">
@@ -113,7 +74,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="d-flex align-items-start">
                             <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <span style="font-size: 2rem;">🥕</span>
+                                <img src="img/carat.png" alt="Daily Calculator Icon" class="tool-image">
                             </div>
                             <div>
                                 <h5 style="color: var(--dark-purple);">Daily Calculator</h5>
@@ -124,7 +85,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="d-flex align-items-start">
                             <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <span style="font-size: 2rem;">⚔️</span>
+                                <img src="img/ticket.png" alt="Weekly PVP Trials Icon" class="tool-image">
                             </div>
                             <div>
                                 <h5 style="color: var(--dark-purple);">Weekly PVP Trials</h5>
@@ -135,7 +96,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="d-flex align-items-start">
                             <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <span style="font-size: 2rem;">📅</span>
+                                <img src="img/savings.png" alt="Banner Timeline Icon" class="tool-image">
                             </div>
                             <div>
                                 <h5 style="color: var(--dark-purple);">Banner Timeline</h5>
@@ -146,7 +107,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="d-flex align-items-start">
                             <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <span style="font-size: 2rem;">💾</span>
+                                <img src="img/pvp.png" alt="Save & Load Icon" class="tool-image">
                             </div>
                             <div>
                                 <h5 style="color: var(--dark-purple);">Save & Load</h5>

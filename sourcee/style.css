@@ -79,6 +79,49 @@
             height: 160px;
             object-fit: cover;
         }
+        /* Mobile responsive banner images */
+        @media (max-width: 768px) {
+            .banner-card img {
+                height: auto;
+                min-height: 200px;
+                max-height: 400px;
+                object-fit: contain;
+                background-color: #f8f9fa;
+                padding: 8px;
+            }
+            .banner-card {
+                margin-bottom: 1rem;
+            }
+            .banner-card .content {
+                padding: 10px 12px;
+            }
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch !important;
+            }
+            .toolbar > * {
+                width: 100% !important;
+                margin-bottom: 0.5rem;
+            }
+            .toolbar .form-select,
+            .toolbar .input-group {
+                width: 100% !important;
+            }
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .card-header {
+                font-size: 0.95rem;
+            }
+            .navbar-nav {
+                text-align: right;
+            }
+            .dropdown-menu {
+                right: 0;
+                left: auto;
+            }
+        }
         .banner-card .content {
             padding: 12px 14px;
         }
