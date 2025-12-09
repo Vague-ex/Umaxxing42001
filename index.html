@@ -13,7 +13,6 @@
     <script src="sourcee/carat.js" defer></script> 
 </head>
 <body>
-    <!-- Navbar (updated) -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
@@ -27,101 +26,209 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Guides</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="guides/beginner-guide.html">Beginner Guide</a></li>
-                            <li><a class="dropdown-item" href="guides/gacha-strategy.html">Gacha Strategy</a></li>
-                            <li><a class="dropdown-item" href="guides/pvp-guide.html">PvP Guide</a></li>
-                            <li><a class="dropdown-item" href="guides/training-guide.html">Training Guide</a></li>
+                            <li><a class="dropdown-item" href="guides/Characterguide.html">Character Guide</a></li>
+                            <li><a class="dropdown-item" href="guides/ScenarioGuide.html">Scenario Guide</a></li>
+                            <li><a class="dropdown-item" href="guides/StatsGuide.html">Stats Guide</a></li>
+                            <li><a class="dropdown-item" href="guides/SupportcardGuide.html">Support Card Guide</a></li>
+                            <li><a class="dropdown-item" href="guides/Tierlist.html">Tier List</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="guides/externalresources.html">External Resources</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tools</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="tools.html">Tools</a></li>
-                            <li><a class="dropdown-item" href="tools/pvp-tools.html">PvP Tools</a></li>
-                            <li><a class="dropdown-item" href="tools/training-tools.html">Training Tools</a></li>
-                            <li><a class="dropdown-item" href="tools/external-resources.html">External Resources</a></li>
+                            <li><a class="dropdown-item" href="Tools/Tools.html">General Tools</a></li>
+                            <li><a class="dropdown-item" href="Tools/bannerplanner.html">Banner Planner</a></li>
+                            <li><a class="dropdown-item" href="Tools/Toolspvp.html">PvP Tools</a></li>
+                            <li><a class="dropdown-item" href="Tools/ToolsChamp.html">Championship Tools</a></li>
                         </ul>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="bannerplanner.html">Banner Planner</a>
-                    </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="changelog.html">Changelog</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://github.com/Vague-ex" target="_blank">GitHub</a></li>
-                            <li><a class="dropdown-item" href="https://gametora.com/umamusume" target="_blank">GameTora Wiki</a></li>
-                            <li><a class="dropdown-item" href="https://discord.gg/umamusume" target="_blank">Discord Community</a></li>
-                            <li><a class="dropdown-item" href="https://reddit.com/r/UmaMusume" target="_blank">Subreddit</a></li>
-                        </ul>
-                    </li>
-
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Landing content (replaced internal app UI) -->
-    <main class="container my-5">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <h1 class="display-5 fw-bold">Tools and Guides for Uma Musume planning</h1>
-                <p class="lead text-muted">Quickly plan banners, estimate carrats, and consult concise guides to improve your gameplay.</p>
-                <div class="d-flex gap-2">
-                    <a href="guides/beginner-guide.html" class="btn btn-primary">Get Started — Beginner Guide</a>
-                    <a href="bannerplanner.html" class="btn btn-outline-secondary">Open Banner Planner</a>
+    <main>
+        <section class="bg-gradient py-5">
+            <div class="container">
+                <div class="row align-items-center min-vh-50">
+                    <div class="col-lg-7 py-5">
+                        <h1 class="display-4 fw-bold mb-4">Master Uma Musume with Expert Tools and Guides</h1>
+                        <p class="lead text-muted mb-4">Strategic planning tools, in-depth guides, and calculators designed to optimize your gameplay and maximize your results.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="guides/Characterguide.html" class="btn btn-primary btn-lg px-4">
+                                <i class="bi bi-book me-2"></i>View Guides
+                            </a>
+                            <a href="Tools/bannerplanner.html" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-calendar3 me-2"></i>Banner Planner
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="img/carat.png" alt="Carrat" class="img-fluid" style="max-width:280px;">
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-5 text-center">
-                <img src="img/carat.png" alt="Carrat" style="max-width:180px;">
-            </div>
-        </div>
+        </section>
 
-        <hr class="my-5">
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Core Features</h2>
+                    <p class="text-muted">Everything you need to excel in Uma Musume</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:64px;height:64px;">
+                                    <i class="bi bi-calendar-check fs-3 text-primary"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">Banner Planner</h5>
+                                <p class="card-text text-muted small">Plan upcoming pulls and optimize resource allocation across multiple banners.</p>
+                                <a href="Tools/bannerplanner.html" class="btn btn-sm btn-outline-primary mt-2">Open Tool</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:64px;height:64px;">
+                                    <i class="bi bi-calculator fs-3 text-success"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">Resource Calculator</h5>
+                                <p class="card-text text-muted small">Estimate carrats from dailies, events, and competitive modes with precision.</p>
+                                <a href="Tools/Tools.html" class="btn btn-sm btn-outline-success mt-2">Calculate Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-danger bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:64px;height:64px;">
+                                    <i class="bi bi-trophy fs-3 text-danger"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">PvP Tools</h5>
+                                <p class="card-text text-muted small">Advanced calculators and strategies for competitive championship modes.</p>
+                                <a href="Tools/Toolspvp.html" class="btn btn-sm btn-outline-danger mt-2">Explore Tools</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:64px;height:64px;">
+                                    <i class="bi bi-book-half fs-3 text-warning"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">Strategy Guides</h5>
+                                <p class="card-text text-muted small">Comprehensive guides covering characters, scenarios, stats, and support cards.</p>
+                                <a href="guides/Characterguide.html" class="btn btn-sm btn-outline-warning mt-2">Read Guides</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="row text-center">
-            <div class="col-md-4 mb-4">
-                <h5>Banner Planner</h5>
-                <p class="text-muted">Plan and compare upcoming banners to time your pulls.</p>
-                <a href="bannerplanner.html" class="btn btn-sm btn-outline-primary mt-2" role="button">Open Planner</a>
+        <section class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h2 class="display-6 fw-bold mb-4">Comprehensive Guides</h2>
+                        <p class="text-muted mb-4">Access detailed documentation covering every aspect of Uma Musume gameplay. From character optimization to advanced scenario strategies.</p>
+                        <div class="list-group">
+                            <a href="guides/Characterguide.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Character Guide</h6>
+                                    <small class="text-muted">Character traits, strengths, and optimal builds</small>
+                                </div>
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                            <a href="guides/SupportcardGuide.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Support Card Guide</h6>
+                                    <small class="text-muted">Card synergies and deck building strategies</small>
+                                </div>
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                            <a href="guides/ScenarioGuide.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Scenario Guide</h6>
+                                    <small class="text-muted">Navigate training scenarios effectively</small>
+                                </div>
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                            <a href="guides/Tierlist.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Tier List</h6>
+                                    <small class="text-muted">Current meta rankings and recommendations</small>
+                                </div>
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <h5>Carrat Calculator</h5>
-                <p class="text-muted">Estimate carrats from dailies, weeklies, PvP and events.</p>
-                <a href="Tools.html" class="btn btn-sm btn-outline-primary mt-2" role="button">Open Tools</a>
+        </section>
+
+        <section class="py-5 bg-dark text-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+                        <h3 class="fw-bold mb-2">Ready to optimize your gameplay?</h3>
+                        <p class="mb-0 text-light opacity-75">Start with the character guide or jump straight into planning your next banner pull.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="guides/Characterguide.html" class="btn btn-light btn-lg px-4 me-2 mb-2">Get Started</a>
+                        <a href="Tools/bannerplanner.html" class="btn btn-outline-light btn-lg px-4 mb-2">Plan Banners</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <h5>Guides</h5>
-                <p class="text-muted">Concise guides covering gacha, PvP, and training strategies.</p>
-                <a href="guides/beginner-guide.html" class="btn btn-sm btn-outline-primary mt-2" role="button">Beginner Guide</a>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Footer (kept) -->
-    <footer class="bg-dark text-light py-3">
-        <div class="container text-center small">
-            <div>Vague's Umapilled Project</div>
-            <div class="mt-1">Links:
-                <a href="guides/beginner-guide.html" class="link-light ms-2">Beginner Guide</a>
-                <span class="text-muted mx-2">·</span>
-                <a href="bannerplanner.html" class="link-light">Banner Planner</a>
-                <span class="text-muted mx-2">·</span>
-                <a href="changelog.html" class="link-light">Changelog</a>
+    <footer class="bg-dark text-light py-4 border-top border-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h5 class="fw-bold mb-3">Vague's Umapilled Project</h5>
+                    <p class="small text-light opacity-75">Comprehensive tools and guides for Uma Musume players seeking strategic advantage.</p>
+                </div>
+                <div class="col-md-3 mb-3 mb-md-0">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="guides/Characterguide.html" class="link-light text-decoration-none opacity-75">Character Guide</a></li>
+                        <li class="mb-2"><a href="Tools/bannerplanner.html" class="link-light text-decoration-none opacity-75">Banner Planner</a></li>
+                        <li class="mb-2"><a href="guides/Tierlist.html" class="link-light text-decoration-none opacity-75">Tier List</a></li>
+                        <li class="mb-2"><a href="changelog.html" class="link-light text-decoration-none opacity-75">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="Tools/Tools.html" class="link-light text-decoration-none opacity-75">General Tools</a></li>
+                        <li class="mb-2"><a href="Tools/Toolspvp.html" class="link-light text-decoration-none opacity-75">PvP Tools</a></li>
+                        <li class="mb-2"><a href="guides/externalresources.html" class="link-light text-decoration-none opacity-75">External Resources</a></li>
+                        <li class="mb-2"><a href="about.html" class="link-light text-decoration-none opacity-75">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center small opacity-75">
+                <p class="mb-0">Vague's Umapilled Project</p>
             </div>
         </div>
     </footer>
