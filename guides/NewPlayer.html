@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vague's Umapilled Project</title>
+        <link rel="icon" type="image/png" href="../img/carat.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../sourcee/style.css">
+        <style>
+            .card.h-100 {
+                min-height: 320px; 
+                display: flex;
+                flex-direction: column;
+            }
+
+            .card.h-100 .card-body {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .card-img-top.tool-image {
+                height: 160px;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+            }
+            @media (max-width: 576px) {
+                .card.h-100 { min-height: 300px; }
+                .card-img-top.tool-image { height: 140px; }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- nav -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-calculator-fill me-2"></i>
+                    Vague's Umapilled Project
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html"><i class="bi bi-question-circle-fill me-1"></i> Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Tools.html"><i class="bi bi-tools me-1"></i> Other Tools</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-bookmark-fill me-1"></i> Resources</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://github.com/Vague-ex" target="_blank"><i class="bi bi-github me-2"></i> GitHub</a></li>
+                                <li><a class="dropdown-item" href="https://gametora.com/umamusume" target="_blank"><i class="bi bi-book me-2"></i> GameTora Wiki</a></li>
+                                <li><a class="dropdown-item" href="https://discord.gg/umamusume" target="_blank"><i class="bi bi-discord me-2"></i> Discord Community</a></li>
+                                <li><a class="dropdown-item" href="https://reddit.com/r/UmaMusume" target="_blank"><i class="bi bi-reddit me-2"></i> Subreddit</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-5">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold" style="color: var(--dark-purple);">Other Useful Tools</h1>
+                <p class="lead text-muted">Additional resources to enhance your Uma Musume experience</p>
+            </div>
+
+            <!-- Tools mostly from gametora lmaoo -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">External Tools</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="img/Race sim.png" class="card-img-top tool-image" alt="Uma Musume Race Simulator">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: var(--dark-purple);">Race Simulator</h5>
+                                    <p class="card-text">Simulate races to test strategies and test skill activations & Builds.</p>
+                                    <a href="https://alpha123.github.io/uma-tools/umalator-global" target="_blank" class="btn btn-primary">Goto</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="img/Compatibility.png" class="card-img-top tool-image" alt="Compatibility Calculator">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: var(--dark-purple);">Compatibility Calculator</h5>
+                                    <p class="card-text">Calculator tool that will help you calculate compatibility between characters. Used for building good legacy umas</p>
+                                    <a href="https://gametora.com/umamusume/compatibility" target="_blank" class="btn btn-primary">Goto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- docs -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Useful Documents & Resources</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="img/tierlist.png" class="card-img-top tool-image" alt="Uma Musume Tierlist">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: var(--dark-purple);">Tierlist</h5>
+                                    <p class="card-text">Tierlists of the current global Meta Cards/Characters.</p>
+                                    <a href="https://alpha123.github.io/uma-tools/umalator-global" target="_blank" class="btn btn-primary">Goto</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="img/Team Trials Statistics.png" class="card-img-top tool-image" alt="Global Team Trials Statistics">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: var(--dark-purple);">Global Team Trials Statistics</h5>
+                                    <p class="card-text">Check Out the popular Teams/Decks/Umas used in PVP.</p>
+                                    <a href="https://uma.moe/tools/statistics" target="_blank" class="btn btn-primary">Goto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="img/refference.png" class="card-img-top tool-image" alt="Uma Musume refference sheet">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: var(--dark-purple);">Global refference document</h5>
+                                    <p class="card-text">Useful Info compiled by Global Players whom are veterans in the JP Servers. It shows really detailed information for Pulls plans and Pull Value. It also has information regading Skill Effects and Meta</p>
+                                    <a href="https://uma.moe/tierlist" target="_blank" class="btn btn-primary">Goto</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="img/tachyon.png" class="card-img-top tool-image" alt="Champion Meet Guide">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: var(--dark-purple);">Tachyon Whiteboard | Champion Meet Guide</h5>
+                                    <p class="card-text">See the best skills for the current or upcoming champions meet. Very detailed in terms of team building.</p>
+                                    <a href="https://www.canva.com/design/DAGtOO4KsO4/Koz7xqxxQvpicG84ABIZXw/edit" target="_blank" class="btn btn-primary">Goto</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img src="img/skillsheet.png" class="card-img-top tool-image" alt="Skill Spreadsheet">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: var(--dark-purple);">Skill Spreadsheet</h5>
+                                    <p class="card-text">Detailed Information about each skill in Uma Musume</p>
+                                    <a href="https://www.canva.com/design/DAGtOO4KsO4/Koz7xqxxQvpicG84ABIZXw/edit" target="_blank" class="btn btn-primary">Goto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-4 mt-5" style="background-color: var(--light-purple);">
+            <div class="container">
+                <p class="mb-0" style="color: var(--dark-purple);">Uma Musume Gacha Calculator | Plan Your Pulls Wisely and don't be an idiot like me</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

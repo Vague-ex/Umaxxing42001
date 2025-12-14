@@ -8,7 +8,16 @@
             background-color: #f5f7fb;
             color: var(--dark-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding-bottom: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+        main {
+            flex: 1;
         }
         .navbar {
             background: linear-gradient(135deg, var(--primary-color), #4a1fa8);
@@ -79,7 +88,7 @@
             height: 160px;
             object-fit: cover;
         }
-        /* Mobile responsive banner images */
+        /* Mobile bullshit fix */
         @media (max-width: 768px) {
             .banner-card img {
                 height: auto;
@@ -97,15 +106,15 @@
             }
             .toolbar {
                 flex-direction: column;
-                align-items: stretch !important;
+                align-items: stretch ;
             }
             .toolbar > * {
-                width: 100% !important;
+                width: 100% ;
                 margin-bottom: 0.5rem;
             }
             .toolbar .form-select,
             .toolbar .input-group {
-                width: 100% !important;
+                width: 100% ;
             }
             .container {
                 padding-left: 15px;
@@ -141,3 +150,8 @@
         }
         .banner-card.target { border-color: #ffc107; box-shadow: 0 0 0 2px rgba(255,193,7,.25); }
         .target-badge { background: #ffc107; color: #212529; }
+
+        #heroCarousel img {
+        height: 360px;
+        object-fit: cover;
+        }

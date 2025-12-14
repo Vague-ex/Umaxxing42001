@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                Vague's Umapilled Project
+                Umapilled Project
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Guides</a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="guides/NewPlayer.html">New Player Guide</a></li>
                             <li><a class="dropdown-item" href="guides/Characterguide.html">Character Guide</a></li>
                             <li><a class="dropdown-item" href="guides/ScenarioGuide.html">Scenario Guide</a></li>
                             <li><a class="dropdown-item" href="guides/StatsGuide.html">Stats Guide</a></li>
@@ -74,9 +75,31 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-5 text-center">
-                        <img src="img/carat.png" alt="Carrat" class="img-fluid" style="max-width:280px;">
+                    <div class="col-lg-5">
+                        <div id="heroCarousel" class="carousel slide carousel-fade shadow rounded-4 overflow-hidden" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+
+                                <div class="carousel-item active">
+                                    <img src="img/hero1.png" class="d-block w-100" alt="Uma Musume Banner 1">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/hero2.png" class="d-block w-100" alt="Uma Musume Banner 2">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/hero3.png" class="d-block w-100" alt="Uma Musume Banner 3">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -84,10 +107,10 @@
         <section class="py-5 bg-light">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="display-6 fw-bold">asdasdasdasd'</h2>
-                    <p class="text-muted">asdasdasdasdasd</p>
+                    <h2 class="display-6 fw-bold">Everything You Need, In One Place'</h2>
+                    <p class="text-muted">Guides, tools, and planners built to help both new and veteran trainers make smarter decisions.</p>
                 </div>
-                <div class="row g-4">
+                <div class="row g-3">
                     <div class="col-md-6 col-lg-3">
                         <div class="card h-100 border-0 shadow-sm">
                             <div class="card-body text-center p-4">
@@ -200,7 +223,7 @@
                     </ul>
                 </div>
             </div>
-            <hr class="border-secondary my-4">
+            <hr class="border-secondary my-4 mb-0">
             <div class="text-center small opacity-75">
                 <p class="mb-0">Umapilled Project</p>
             </div>
