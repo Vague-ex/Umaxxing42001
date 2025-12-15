@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vague's Umapilled Project</title>
+    <title>Changelog - Umapilled Project</title>
     <link rel="icon" type="image/png" href="img/carat.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="sourcee/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -57,193 +56,200 @@
         </div>
     </nav>
 
-    <!-- banner -->
     <div class="container mt-5">
         <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold" style="color: var(--dark-purple);">Help & Guide</h1>
-            <p class="lead text-muted">Everything you need to know about planning your gacha pulls</p>
+            <h1 class="display-4 fw-bold" style="color: var(--dark-purple);">Changelog</h1>
+            <p class="lead text-muted">Development history based on GitHub commits</p>
+            <p class="small text-muted">Latest commits at the top</p>
         </div>
 
-        <!-- About Section -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> About This Website</h3>
+        <!-- Recent Updates -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="bi bi-clock-history me-2"></i> Recent Updates (Dec 2025)</h4>
             </div>
             <div class="card-body">
-                <p class="lead">This website is designed for <strong>Uma Musume Pretty Derby</strong> players who struggle to decide which banners to pull on and how to manage their carrats (gacha currency).</p>
-                <p>Our calculator helps you plan your pulls by calculating your daily carrat income and projecting how many carrots you'll have by the time your desired banner arrives!</p>
-            </div>
-        </div>
-
-        <!-- Features Section -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> Features</h3>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/carat.png" alt="Daily Calculator Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Daily Calculator</h5>
-                                <p>Calculate your daily carrat income from various sources including login bonuses, missions, and events.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/ticket.png" alt="Weekly PVP Trials Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Weekly PVP Trials</h5>
-                                <p>Track your weekly carrot income from Team Trials (PVP) and include it in your calculations.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/savings.png" alt="Banner Timeline Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Banner Timeline</h5>
-                                <p>Select your target banner and the calculator will estimate how many carrots you'll accumulate by that date.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/pvp.png" alt="Save & Load Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Save & Load</h5>
-                                <p>Save your calculations and load them later. Never lose track of your planning!</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="changelog-entry">
+                    <h5 style="color: var(--dark-purple);">December 15, 2025</h5>
+                    <ul>
+                        <li><strong>Quick Fix on the image, remade about me and created help page</strong> - Fixed image paths and created new help/about pages</li>
+                        <li><strong>quick changes on some oversights</strong> - Minor fixes and improvements</li>
+                        <li><strong>Added content to all of the pages</strong> - Populated website with comprehensive content</li>
+                        <li><strong>Normalized the headers</strong> - Standardized header formatting across all pages</li>
+                    </ul>
+                </div>
+                
+                <div class="changelog-entry mt-4">
+                    <h5 style="color: var(--dark-purple);">December 14, 2025</h5>
+                    <ul>
+                        <li><strong>Added Content for New Player guide</strong> - Created comprehensive new player guide</li>
+                        <li><strong>changed css, added new player guide</strong> - CSS updates and new guide implementation</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- How to Use -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0">How to Use</h3>
+        <!-- November 2025 Updates -->
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0"><i class="bi bi-calendar3 me-2"></i> November 2025 Updates</h4>
             </div>
             <div class="card-body">
-                <ol class="list-group list-group-numbered">
-                    <li class="list-group-item">
-                        <strong>Enter Your Current Carrots:</strong> Input how many carrots you currently have in your account.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Set Daily Income:</strong> Enter your daily carrot income from dailies, missions, and login bonuses.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Add Weekly PVP:</strong> Include your weekly Team Trials rewards (converted to daily average).
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Select Target Banner:</strong> Choose which upcoming banner you want to pull on.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>View Results:</strong> See the projected number of carrots you'll have by the banner date!
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Save Your Plan:</strong> Use the save feature to keep your calculations for future reference.
-                    </li>
-                </ol>
+                <div class="changelog-entry">
+                    <h5 style="color: var(--dark-purple);">December 9, 2025</h5>
+                    <ul>
+                        <li><strong>fixed stylesheet problem that i forgot that even existed</strong> - CSS fixes</li>
+                        <li><strong>refactored Index.html (again)</strong> - Homepage restructuring</li>
+                    </ul>
+                </div>
+                
+                <div class="changelog-entry mt-4">
+                    <h5 style="color: var(--dark-purple);">November 27, 2025</h5>
+                    <ul>
+                        <li><strong>refactored Index.html</strong> - Homepage improvements</li>
+                        <li><strong>tested Js functionality on bannerplanner.html</strong> - JavaScript testing and debugging</li>
+                    </ul>
+                </div>
+                
+                <div class="changelog-entry mt-4">
+                    <h5 style="color: var(--dark-purple);">November 26, 2025</h5>
+                    <ul>
+                        <li><strong>added to webpages to comply to requirements</strong> - Added necessary pages and content</li>
+                    </ul>
+                </div>
+                
+                <div class="changelog-entry mt-4">
+                    <h5 style="color: var(--dark-purple);">November 12, 2025</h5>
+                    <ul>
+                        <li><strong>restructured card bodies</strong> - UI improvements</li>
+                        <li><strong>img fix</strong> - Image path corrections</li>
+                        <li><strong>redesigned Nav bar dropdown, added new page</strong> - Navigation improvements</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- Tips & Tricks -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> Tips & Tricks</h3>
+        <!-- Initial Development (Nov 11, 2025) -->
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="bi bi-rocket-takeoff me-2"></i> Initial Development - November 11, 2025</h4>
             </div>
             <div class="card-body">
                 <div class="alert alert-info">
-                    <strong>Pro Tip:</strong> Remember to update your daily income when new events start or when you rank up in Team Trials!
+                    <strong>Version 0.1 Launch Day!</strong> Most of the core functionality was implemented on this day.
                 </div>
-                <ul>
-                    <li>Always add a buffer to your calculations - unexpected events can give bonus carrots!</li>
-                    <li>Check the Japanese server timeline (4 years ahead) to plan for future banners.</li>
-                    <li>Consider saving carrots for limited banners rather than permanent ones.</li>
-                    <li>Don't forget to include event rewards in your calculations.</li>
-                </ul>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 style="color: var(--dark-purple);">Core Features Added:</h6>
+                        <ul>
+                            <li><strong>version 0.1</strong> - Initial release</li>
+                            <li><strong>changed to make it toggleable or like clickable for the banner you want to pull on</strong> - Interactive banner selection</li>
+                            <li><strong>changed logic for calculation. based on old versions of the website</strong> - Calculator improvements</li>
+                            <li><strong>added Daily Carrat Calcing</strong> - Daily income calculation</li>
+                            <li><strong>timeline</strong> - Banner timeline implementation</li>
+                            <li><strong>ugly ass cards</strong> - Initial UI implementation</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 style="color: var(--dark-purple);">Bug Fixes & Debugging:</h6>
+                        <ul>
+                            <li><strong>connection fixed, populate db future me</strong> - Database connection fixes</li>
+                            <li><strong>updated Changelog and then seeing how wrong i am with my dates bro oh my god</strong> - Date fixes</li>
+                            <li><strong>addded debug for db connection to supabase</strong> - Database debugging</li>
+                            <li><strong>minor change in connection</strong> - Connection improvements</li>
+                            <li><strong>changelog</strong> - Initial changelog</li>
+                            <li><strong>Banner doesnt show initial fix</strong> - Banner display fixes</li>
+                            <li><strong>bugfix</strong> - Various bug fixes</li>
+                            <li><strong>for debugging</strong> - Debugging tools</li>
+                            <li><strong>why does this shit not work</strong> - Troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <h6 style="color: var(--dark-purple);">UI & Content:</h6>
+                    <ul>
+                        <li><strong>text wrap fix for index</strong> - Text formatting fixes</li>
+                        <li><strong>fixed headings for all pages</strong> - Header standardization</li>
+                        <li><strong>Minor change3</strong> - Minor UI adjustments</li>
+                        <li><strong>minor changes 2</strong> - Small improvements</li>
+                        <li><strong>minor change</strong> - General adjustments</li>
+                        <li><strong>Initial lmao</strong> - Project initialization</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- External Resources -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> Helpful Resources</h3>
-            </div>
-            <div class="card-body">
-                <h5 style="color: var(--dark-purple);">Japanese Game Info</h5>
-                <p>For future banner predictions and game information from the Japanese server (which is 4 years ahead of global):</p>
-                <a href="https://gametora.com/umamusume" target="_blank" class="btn btn-primary">
-                    Visit GameTora Wiki
-                </a>
-                <p class="mt-3 text-muted"><small>Note: The Japanese server provides valuable insight into upcoming content, characters, and events that will eventually come to the global version.</small></p>
-            </div>
-        </div>
-
-        <!-- FAQ -->
+        <!-- Version Summary -->
         <div class="card mb-5">
             <div class="card-header">
-                <h3 class="mb-0"> Frequently Asked Questions</h3>
+                <h4 class="mb-0"><i class="bi bi-tags me-2"></i> Version Summary</h4>
             </div>
             <div class="card-body">
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                Minimum saved carrats?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                You'd need to typically save around 20k or garaunteed 200 pulls to hit Hard Pity. That way you'd have at least one copy when luck doesn't play with your fate.
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-primary">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: var(--dark-purple);">Version 0.1</h5>
+                                <p class="card-text"><strong>Nov 11, 2025</strong></p>
+                                <ul class="small">
+                                    <li>Initial project launch</li>
+                                    <li>Banner Planner core features</li>
+                                    <li>Basic calculator functionality</li>
+                                    <li>Supabase integration</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                How accurate is the calculator?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                The calculator provides estimates based on your input. Actual results may vary due to unexpected events, bonuses, or changes in your daily routine. such as the Goldship Event By the end of the Anime Collabs
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-info">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: var(--dark-purple);">Version 0.2</h5>
+                                <p class="card-text"><strong>Nov-Dec 2025</strong></p>
+                                <ul class="small">
+                                    <li>UI improvements</li>
+                                    <li>Navigation redesign</li>
+                                    <li>Bug fixes</li>
+                                    <li>Content addition</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                Can I use this for multiple banners?
-                            </button>
-                        </h2>
-                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Yeah kinda, you can use it to save the config and load it later. I'll make it a feature soon.
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-success">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: var(--dark-purple);">Current Version</h5>
+                                <p class="card-text"><strong>Dec 15, 2025</strong></p>
+                                <ul class="small">
+                                    <li>Complete guide pages</li>
+                                    <li>Help & About pages</li>
+                                    <li>Image fixes</li>
+                                    <li>Content polish</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- View on GitHub -->
+        <div class="card mb-5">
+            <div class="card-body text-center">
+                <h4 style="color: var(--dark-purple);">View Complete History on GitHub</h4>
+                <p>For the complete commit history with exact timestamps and code changes:</p>
+                <a href="https://github.com/Vague-ex/Umaxxing42001" target="_blank" class="btn btn-primary">
+                    <i class="bi bi-github me-2"></i> View on GitHub
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="text-center py-4 mt-5" style="background-color: var(--light-purple);">
         <div class="container">
-            <p class="mb-0" style="color: var(--dark-purple);">Uma Musume Gacha Calculator | Plan Your Pulls Wisely and don't be an idiot like me</p>
+            <p class="mb-0" style="color: var(--dark-purple);">Umapilled Project Changelog</p>
+            <p class="small mt-2" style="color: var(--dark-purple);">Last Updated: December 15, 2025</p>
         </div>
     </footer>
 
