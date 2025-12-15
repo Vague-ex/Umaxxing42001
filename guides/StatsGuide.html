@@ -57,196 +57,443 @@
         </div>
     </nav>
 
-    <!-- banner -->
-    <div class="container mt-5">
-        <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold" style="color: var(--dark-purple);">Help & Guide</h1>
-            <p class="lead text-muted">Everything you need to know about planning your gacha pulls</p>
-        </div>
+    <main class="container my-5">
+        <article class="mx-auto" style="max-width: 1000px;">
+            <header class="mb-4">
+                <h1 class="fw-bold">Stats Guide</h1>
+            </header>
 
-        <!-- About Section -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> About This Website</h3>
-            </div>
-            <div class="card-body">
-                <p class="lead">This website is designed for <strong>Uma Musume Pretty Derby</strong> players who struggle to decide which banners to pull on and how to manage their carrats (gacha currency).</p>
-                <p>Our calculator helps you plan your pulls by calculating your daily carrat income and projecting how many carrots you'll have by the time your desired banner arrives!</p>
-            </div>
-        </div>
+            <h2>Speed</h2>
+            <p>
+                Speed is always an important stat. You will want as much of it as possible, as it increases your top speed during the last spurt.
+            </p>
+            <p>
+                <code>BaseSpeed = (20 - (CourseLength - 2000) / 1000) * PhaseModifier</code>
+            </p>
+            <p>
+                <code>FinalLegSpeed = BaseSpeed + sqrt(500 * Speed) * DistanceAptitude * 0.002</code>
+            </p>
+            <p>
+                <code>MaxSpurtSpeed = (FinalLegSpeed + 0.01 * BaseSpeed) * 1.05 + sqrt(500 * Speed) * DistanceAptitude * 0.002</code>
+            </p>
 
-        <!-- Features Section -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> Features</h3>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/carat.png" alt="Daily Calculator Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Daily Calculator</h5>
-                                <p>Calculate your daily carrat income from various sources including login bonuses, missions, and events.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/ticket.png" alt="Weekly PVP Trials Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Weekly PVP Trials</h5>
-                                <p>Track your weekly carrot income from Team Trials (PVP) and include it in your calculations.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/savings.png" alt="Banner Timeline Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Banner Timeline</h5>
-                                <p>Select your target banner and the calculator will estimate how many carrots you'll accumulate by that date.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/pvp.png" alt="Save & Load Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Save & Load</h5>
-                                <p>Save your calculations and load them later. Never lose track of your planning!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <h2>Stamina</h2>
+            <p>
+                Stamina is necessary up to a point, and then starts to fall off depending on distance. How much you need is based on a variety of factors. The lower your speed, the less you'll need. Pace Chasers also receive an 11% Stamina penalty. For a target stamina for each style in each distance, see the Required Stamina Chart below.
+            </p>
+            <p>
+                Long distance has a wide variety of distances, from 2500m up to 3600m. If you're targeting ones on the shorter end, you can skimp more on stamina. They're 2600m or lower over half of the time, with the other half being 3000+m in Team Trials.
+            </p>
+            <p>
+                On top of causing you to lose Speed when you run out of HP, your remaining HP also affects how long and how fast your last spurt will be. If you lack Stamina, your uma will start her last spurt later or run slower to use her HP more efficiently. If you completely run out of HP, you'll quickly decelerate.
+            </p>
 
-        <!-- How to Use -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0">How to Use</h3>
-            </div>
-            <div class="card-body">
-                <ol class="list-group list-group-numbered">
-                    <li class="list-group-item">
-                        <strong>Enter Your Current Carrots:</strong> Input how many carrots you currently have in your account.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Set Daily Income:</strong> Enter your daily carrot income from dailies, missions, and login bonuses.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Add Weekly PVP:</strong> Include your weekly Team Trials rewards (converted to daily average).
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Select Target Banner:</strong> Choose which upcoming banner you want to pull on.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>View Results:</strong> See the projected number of carrots you'll have by the banner date!
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Save Your Plan:</strong> Use the save feature to keep your calculations for future reference.
-                    </li>
-                </ol>
-            </div>
-        </div>
+            <h2>Power</h2>
+            <p>
+                Power is more important in shorter distances, but always helps out. It affects how quickly you accelerate to your top speed. In longer races, you have more time to accelerate, so having a high acceleration doesn't have as big of an impact. For the most part, if you meet your stamina goal, you'll focus as much on speed as possible, then power second.
+            </p>
+            <p>
+                <code>BaseAcceleration = 0.0006 normally, 0.0004 on uphills.</code>
+            </p>
+            <p>
+                <code>Acceleration = BaseAcceleration * sqrt(500 * Power) * PhaseModifier * SurfaceAptitude</code>
+            </p>
+            <p>
+                Power also affects your speed on uphills. When going uphill, you receive a speed penalty of <code>|100 * tan(angle in radians)| * 200 / Power</code>.
+            </p>
+            <p>
+                It also affects how quickly you change lanes. Your lane change speed is <code>0.02 * (0.3 + 0.001 * Power) m/s</code>.
+            </p>
 
-        <!-- Tips & Tricks -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> Tips & Tricks</h3>
-            </div>
-            <div class="card-body">
-                <div class="alert alert-info">
-                    <strong>Pro Tip:</strong> Remember to update your daily income when new events start or when you rank up in Team Trials!
-                </div>
-                <ul>
-                    <li>Always add a buffer to your calculations - unexpected events can give bonus carrots!</li>
-                    <li>Check the Japanese server timeline (4 years ahead) to plan for future banners.</li>
-                    <li>Consider saving carrots for limited banners rather than permanent ones.</li>
-                    <li>Don't forget to include event rewards in your calculations.</li>
-                </ul>
-            </div>
-        </div>
+            <h2>Guts</h2>
+            <p>
+                Guts isn't useful in large numbers, but you need a small amount of it. Umas will want to have ~300 guts, but rarely more than 400. Up to 400, it's close to equivalent to stamina, while after, it falls off. See the Stamina vs Guts section for details.
+            </p>
+            <p>
+                The Final Leg HP consumption modifier is <code>1.0 + 200/sqrt(600 * Guts)</code>.
+            </p>
 
-        <!-- External Resources -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> Helpful Resources</h3>
+            <h2>Wisdom</h2>
+            <p>
+                Wit, aka Wisdom affects your skill trigger rates, as well as some other things. Aim to have between 300 and 500 wisdom for any uma. Any more than that and it starts to fall off too much. You can see a chart of the skill proc chance based on your wisdom here.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Wisdom</th>
+                            <th>200</th>
+                            <th>300</th>
+                            <th>400</th>
+                            <th>500</th>
+                            <th>600</th>
+                            <th>700</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Skill Proc</strong></td>
+                            <td>55%</td>
+                            <td>70%</td>
+                            <td>77.5%</td>
+                            <td>82%</td>
+                            <td>85%</td>
+                            <td>87%</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="card-body">
-                <h5 style="color: var(--dark-purple);">Japanese Game Info</h5>
-                <p>For future banner predictions and game information from the Japanese server (which is 4 years ahead of global):</p>
-                <a href="https://gametora.com/umamusume" target="_blank" class="btn btn-primary">
-                    Visit GameTora Wiki
-                </a>
-                <p class="mt-3 text-muted"><small>Note: The Japanese server provides valuable insight into upcoming content, characters, and events that will eventually come to the global version.</small></p>
+            <p>
+                Wit also affects the chance that the uma suffers from "Rushed" debuff. Whether the uma will suffer Rushed is determined at the start of the race based on a Wisdom check. The chance is <code>(6.5 / log10(0.1*Wit+1))^2</code> percent.
+            </p>
+            <p>
+                Rushed will occur at a mostly random point in the first half of the course. It lasts for 12 seconds, but you have a 55% chance to break free every 3 seconds. While under Rushed, the uma will consume HP 60% faster and switch their style to a more aggressive one (eg, a Late Surger might act as a Pace Chaser or a Front Runner, Front Runner acts like Twin Turbo).
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Wisdom</th>
+                            <th>200</th>
+                            <th>300</th>
+                            <th>400</th>
+                            <th>500</th>
+                            <th>600</th>
+                            <th>700</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Rushed</strong></td>
+                            <td>24.17%</td>
+                            <td>19%</td>
+                            <td>16.24%</td>
+                            <td>14.49%</td>
+                            <td>13.26%</td>
+                            <td>12.32%</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
+            <p>
+                Wit can also give you a chance to increase your speed on downhills. The speed boost you get from downhills is <code>0.3 + |100 * tan(angle in radians)| / 10</code>, and the chance you receive it is <code>0.04% * Wisdom</code>. So, 4% per 100 Wit. Every second, this has a 20% chance to end.
+            </p>
+            <p>
+                Another other thing Wit does is help determine your target speed at each section of the race. There are 24 such sections, and in each of them, your uma applies a random modifier to her target speed, with the help of your Wit.
+            </p>
+            <p>
+                The max modifier is <code>Wit / 5500 * log10(Wit * 0.1)%</code>
+            </p>
+            <p>
+                The minimum modifier is the max speed minus 0.65.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Wisdom</th>
+                            <th>200</th>
+                            <th>300</th>
+                            <th>400</th>
+                            <th>500</th>
+                            <th>600</th>
+                            <th>700</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Max Mod</strong></td>
+                            <td>0.047%</td>
+                            <td>0.081%</td>
+                            <td>0.117%</td>
+                            <td>0.154%</td>
+                            <td>0.194%</td>
+                            <td>0.235%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Min Mod</strong></td>
+                            <td>-0.603%</td>
+                            <td>-0.569%</td>
+                            <td>-0.533%</td>
+                            <td>-0.496%</td>
+                            <td>-0.456%</td>
+                            <td>-0.415%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <!-- FAQ -->
-        <div class="card mb-5">
-            <div class="card-header">
-                <h3 class="mb-0"> Frequently Asked Questions</h3>
+            <h2>Stat Importance</h2>
+            <p>
+                Assuming a perfect uma with 1200 in all stats, but no skills, here is how much faster that uma is than an uma with 1200 in all stats except one, measured in lengths. The "Long" track is Tenno Sho Spring, the "Medium" track is Derby, the "Sprint" is Sprinter's Stakes.
+            </p>
+            <div class="note-box">
+                <strong>Note:</strong> This table was made before the update that made Guts affect spurt speed.
             </div>
-            <div class="card-body">
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                Minimum saved carrats?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                You'd need to typically save around 20k or garaunteed 200 pulls to hit Hard Pity. That way you'd have at least one copy when luck doesn't play with your fate.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                How accurate is the calculator?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                The calculator provides estimates based on your input. Actual results may vary due to unexpected events, bonuses, or changes in your daily routine. such as the Goldship Event By the end of the Anime Collabs
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                Can I use this for multiple banners?
-                            </button>
-                        </h2>
-                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Yeah kinda, you can use it to save the config and load it later. I'll make it a feature soon.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Stat</th>
+                            <th>400</th>
+                            <th>600</th>
+                            <th>800</th>
+                            <th>1000</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Speed (Long)</strong></td>
+                            <td>21.29</td>
+                            <td>14.48<br><small>(+6.81)</small></td>
+                            <td>8.92<br><small>(+5.56)</small></td>
+                            <td>4.18<br><small>(+4.74)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Speed (Sprint)</strong></td>
+                            <td>5.04</td>
+                            <td>3.31<br><small>(+1.73)</small></td>
+                            <td>1.98<br><small>(+1.33)</small></td>
+                            <td>0.90<br><small>(+1.08)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stamina (Long)</strong></td>
+                            <td>45.07</td>
+                            <td>42.17<br><small>(+2.90)</small></td>
+                            <td>25.50<br><small>(+16.67)</small></td>
+                            <td>10.46<br><small>(+15.04)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stamina (Med)</strong></td>
+                            <td>21.35</td>
+                            <td>6.48<br><small>(+14.87)</small></td>
+                            <td>0.00<br><small>(+6.48)</small></td>
+                            <td>0.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power (Long)</strong></td>
+                            <td>19.64</td>
+                            <td>10.03<br><small>(+9.61)</small></td>
+                            <td>5.12<br><small>(+4.91)</small></td>
+                            <td>2.10<br><small>(+3.02)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power (Sprint)</strong></td>
+                            <td>7.92</td>
+                            <td>4.61<br><small>(+3.31)</small></td>
+                            <td>2.53<br><small>(+2.08)</small></td>
+                            <td>1.10<br><small>(+1.43)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Guts (Long)</strong></td>
+                            <td>19.38</td>
+                            <td>10.05<br><small>(+9.33)</small></td>
+                            <td>4.27<br><small>(+5.78)</small></td>
+                            <td>1.48<br><small>(+2.79)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Guts (Med)</strong></td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wit (Long)</strong></td>
+                            <td>5.58</td>
+                            <td>4.30<br><small>(+1.28)</small></td>
+                            <td>2.93<br><small>(+1.37)</small></td>
+                            <td>1.49<br><small>(+1.44)</small></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </div>
+            <p>
+                Acceleration makes Power less important. For example, if the Sprint uma is Pasa, then Speed outperforms Power. And, training Speed raises Power, while training Power raises Stamina, so even in Sprint, Speed wins out in the end. Power is also stronger the more Speed you have, as the higher your top speed, the more you need to accelerate. And vice versa, since having higher Power lets you accelerate to your top speed faster, getting more out of your Speed stat.
+            </p>
+            <p>
+                Stamina and Guts are extremely powerful when giving you more effective HP, but useless otherwise, with Guts being a spicy version of Stamina. (see next page) Wit also gets better when you lack Stamina, as it makes your spurts better and can reduce HP consumption on downhills, acting as bonus Stamina.
+            </p>
+            <p>
+                From this, we can think of the stat importance as:
+            </p>
+            <p>
+                <strong>Stamina/Guts up to the track's requirement > Speed > Power > Wit</strong>
+            </p>
 
-    <!-- Footer -->
-    <footer class="text-center py-4 mt-5" style="background-color: var(--light-purple);">
-        <div class="container">
-            <p class="mb-0" style="color: var(--dark-purple);">Uma Musume Gacha Calculator | Plan Your Pulls Wisely and don't be an idiot like me</p>
-        </div>
+            <h2>Stamina vs Guts</h2>
+            <p>
+                Each distance has a "target" Guts. Below this number, each point of Guts lost is worth more than losing a point of Stamina. Above, each point of Guts gained is worth less than gaining a point of Stamina.
+            </p>
+            <ul>
+                <li>In Sprint, this threshold is at <strong>210 Guts</strong>.</li>
+                <li>In Mile and Dirt, <strong>260 Guts</strong>.</li>
+                <li>In Medium, <strong>320 Guts</strong>.</li>
+                <li>In Long, 3000m has a threshold of <strong>380 Guts</strong>, while 3600m has one of <strong>440</strong>.</li>
+            </ul>
+            <p>
+                Guts is only slightly worse than Stamina while going 50 over this threshold point. Those 50 points of Guts will be worth 43~46 Stamina. The next 50 will be worth 33~37 Stamina. The 50 after that is only worth 30~31.
+            </p>
+            <p>
+                On the other hand, Guts is better than Stamina when below the threshold. If you're 50 below, then adding 50 Guts is like adding 55~62 Stamina. If you're 100 below, adding 50 is like adding 66~83. At 150 below, the 50 Guts would be worth 82~106 Stamina. It's more impactful in the shorter distances.
+            </p>
+
+            <h2>HP</h2>
+            <p>
+                The HP calculation formula is <code>(Track Distance) + (Stamina * 0.8) * (Style Modifier)</code>.
+            </p>
+            <ul>
+                <li>Front Runners have a multiplier of <strong>0.95</strong>, or 95%</li>
+                <li>Pace Chasers have one of <strong>0.89</strong></li>
+                <li>Late Surgers have one of <strong>1</strong></li>
+                <li>End Closers have one of <strong>0.995</strong></li>
+            </ul>
+            <p>
+                You might ask how Guts fits into this. Guts lowers your HP consumption at the end of the race. The multiplier for HP consumed is <code>1 + (200 / sqrt(600 * Guts))</code>. More Guts means a lower HP consumption. You can see a graph of this <a href="https://twitter.com/ottoh1112/status/1389344141172035585" target="_blank">here</a>.
+            </p>
+            <p>
+                The base HP consumption rate is <code>20 * (CurrentSpeed - BaseSpeed + 12)^2 / 144</code>
+            </p>
+            <p>
+                The track condition also affects this. The worst condition will give a 1.02 multiplier to HP consumed throughout the race, while the second worst gives 1.02 on Turf and 1.01 on Dirt.
+            </p>
+            <p>
+                While in Rushed, HP consumed is multiplied by 1.6. When you trigger the downhill boost, it's multiplied by 0.4. When the uma enters pace down mode, it's multiplied by 0.6. Front umas never enter pace down.
+            </p>
+            <p>
+                Recovery skills heal a percentage of your HP. A golden one will restore 5.5%, while a white will restore 1.5%. For Unique skills, if the uma is below 3 stars, it will restore 3.5%, otherwise, 5.5%.
+            </p>
+
+            <h2>Stamina Calculator</h2>
+            <p>
+                To determine whether your uma has enough stamina, use this spreadsheet, which isn't track-specific but works fine. Most notably, it doesn't consider hills, so will often overestimate your required stamina. You'll want to leave the "consider skill proc rate" option off. Average doesn't make sense for heals, you get them or you don't, so the "chance of failure" is the important stat rather than your average.
+            </p>
+            <p>
+                You could also plug their information into this calculator. The options, despite looking like they're all off, actually default to on, so you'll have to turn them on and back off again to get closer to Global. There are probably various differences in the code, from updated mechanics (like Guts) to updated course data, so it will be more accurate the more time passes.
+            </p>
+            <p>
+                Or, you can use the Umalator, which is sometimes a bit more work. There's a section on using it to check stamina here. All three will usually give results within 100-200 Stamina of each other.
+            </p>
+
+            <h2>Required Stamina Chart</h2>
+            <p>
+                These numbers are generated with the umalator, for quick reference. Downhills reduce the Stamina requirement, so some tracks will also be lower than this. Eg, Hanshin 3000m takes 150 less stamina than Kyoto 3000m, due to having 1000m of downhills.
+            </p>
+            <div class="tip-box">
+                <strong>Note:</strong> The numbers seem extreme, but Stamina is more important than Speed if you lack Stamina. 1200 Speed 500 Stamina is 3 seconds (~30 lengths) slower than 500 Speed 1200 Stamina on Tennosho Spring (3200m). You lose so much speed when out of stamina. In Career Mode, the invisible +400 All Stats bonus makes these much lower. See Stamina vs Speed.
+            </div>
+            <p>
+                These numbers are calculated with 1200 Speed, 1200 Power, and 600 Wit, on tracks with no downhills, and with no skills other than heals. For Sprint/Mile, it uses 300 Guts, and for Med/Long, 400 Guts. See Stamina vs Guts. The existence of downhills can lower these numbers, and the existence of Debuffers can raise them. Skills can also cause you to spend more stamina due to running faster, but it tends to be minor, like 10-30 Stamina.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Required Stamina</th>
+                            <th>Front Runner</th>
+                            <th>Pace Chaser</th>
+                            <th>Late Surger</th>
+                            <th>End Closer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Short - 1400m</td><td>570</td><td>540</td><td>500</td><td>510</td></tr>
+                        <tr><td>Mile - 1800m</td><td>800</td><td>770</td><td>720</td><td>740</td></tr>
+                        <tr><td>Mile - 1800m + 1 Gold</td><td>640</td><td>600</td><td>560</td><td>580</td></tr>
+                        <tr><td>Mid - 2400m + 1 Gold</td><td>910</td><td>930</td><td>870</td><td>900</td></tr>
+                        <tr><td>Mid - 2400m + 2 Gold</td><td>710</td><td>720</td><td>680</td><td>700</td></tr>
+                        <tr><td>Long - 2600m + 1 Gold</td><td>1130</td><td>1110</td><td>1030</td><td>1060</td></tr>
+                        <tr><td>Long - 2600m + 2 Gold</td><td>900</td><td>870</td><td>820</td><td>850</td></tr>
+                        <tr><td>Long - 3200m + 2 Gold</td><td>1080</td><td>1060</td><td>990</td><td>1020</td></tr>
+                        <tr><td>Long - 3200m + 3 Gold</td><td>830</td><td>800</td><td>750</td><td>780</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-muted">
+                <small>Note that the more gold recoveries you rely on, the less consistent you'll be, as each one only has a roughly 70-80% chance to activate. Check out the chart below to judge how often your uma might end up failing due to missed skill activations.</small>
+            </p>
+
+            <h2>Recovery Consistency</h2>
+            <p>
+                Required Stamina recommendations will list the required stamina based on the number of recoveries, but it assumes those recoveries activate. Here's the chance of that happening based on your Wit stat and how many recoveries you have.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Wit:</th>
+                            <th>300</th>
+                            <th>400</th>
+                            <th>500</th>
+                            <th>600</th>
+                            <th>700</th>
+                            <th>800</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1 Gold Recovery</strong></td><td>70.0%</td><td>77.5%</td><td>82.0%</td><td>85.0%</td><td>87.1%</td><td>88.8%</td></tr>
+                        <tr><td><strong>1 of 2 Gold Recoveries</strong></td><td>91.0%</td><td>94.9%</td><td>96.8%</td><td>97.8%</td><td>98.3%</td><td>98.7%</td></tr>
+                        <tr><td><strong>2 Gold Recoveries</strong></td><td>49.0%</td><td>60.1%</td><td>67.2%</td><td>72.3%</td><td>75.9%</td><td>78.9%</td></tr>
+                        <tr><td><strong>2 of 3 Gold Recoveries</strong></td><td>78.4%</td><td>87.1%</td><td>91.4%</td><td>93.9%</td><td>95.4%</td><td>96.5%</td></tr>
+                        <tr><td><strong>2 of 4 Gold Recoveries</strong></td><td>91.6%</td><td>96.2%</td><td>98.0%</td><td>98.8%</td><td>99.2%</td><td>99.5%</td></tr>
+                        <tr><td><strong>3 Gold Recoveries</strong></td><td>34.4%</td><td>46.5%</td><td>55.1%</td><td>61.4%</td><td>66.1%</td><td>70.0%</td></tr>
+                        <tr><td><strong>3 of 4 Gold Recoveries</strong></td><td>65.2%</td><td>78.0%</td><td>84.9%</td><td>89.0%</td><td>91.7%</td><td>93.6%</td></tr>
+                        <tr><td><strong>4 Gold Recoveries</strong></td><td>24.0%</td><td>36.1%</td><td>45.2%</td><td>52.2%</td><td>57.6%</td><td>62.2%</td></tr>
+                        <tr><td><strong>4 of 5 Gold Recoveries</strong></td><td>52.8%</td><td>68.5%</td><td>77.8%</td><td>83.5%</td><td>87.3%</td><td>90.0%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-muted">
+                <small>Note that some recoveries are also inherently unreliable. For example, it's very rare for Iron Will to trigger, Breath of Fresh Air can trigger too early or late to do anything, and Adrenaline Rush will always be too late. See Gold Recovery Rankings.</small>
+            </p>
+
+            <h2>Stamina vs Speed</h2>
+            <p>
+                So, how important is reaching the Stamina requirement, really? Surely skimping on Stamina and increasing Speed will make the uma run faster, right? How bad could it be?
+            </p>
+            <p>
+                Well, here are some comparisons. They assume both umas have 1200 Power, 250 Guts, and 1000 Wit, and are verified over 100 1v1 races. The umas have no skills, other than recoveries when mentioned, and their uniques do not trigger. They race on tracks with no downhills, and are both Pace Chasers. There is one Front Runner to keep the pace, but it doesn't influence anything else. The umas never get blocked or anything. It's just Speed vs Stamina.
+            </p>
+
+            <h3>Sprint (1400m, Recommendation: 500 Stamina)</h3>
+            <ul>
+                <li>1200 Speed 450 Stamina loses to 1010 Speed 500 Stamina</li>
+                <li>1200 Speed 350 Stamina loses to 470 Speed 500 Stamina</li>
+                <li>1200 Speed 250 Stamina loses to 130 Speed 500 Stamina</li>
+            </ul>
+
+            <h3>Mile (1800m, Recommendation: 800 Stamina)</h3>
+            <ul>
+                <li>1200 Speed 700 Stamina loses to 920 Speed 800 Stamina</li>
+                <li>1200 Speed 600 Stamina loses to 560 Speed 800 Stamina</li>
+                <li>1200 Speed 500 Stamina loses to 270 Speed 800 Stamina</li>
+            </ul>
+
+            <h3>Medium (2400m, Recommendation: 900 Stamina + Gold Recovery)</h3>
+            <ul>
+                <li>1200 Speed 1000 Stamina loses to 710 Speed 1200 Stamina</li>
+                <li>1200 Speed 900 Stamina loses to 470 Speed 900 Stamina + Gold (when it activates)</li>
+                <li>1200 Speed 600 Stamina + Gold loses to 210 Speed 900 Stamina + Gold</li>
+            </ul>
+
+            <p>
+                Overall with these three, we can roughly say that being 300 Stamina below the recommendation turns your Speed stat into a decoration when compared with healthy umas, and if you're 100 under, then each point of Stamina is worth three points of Speed. Going above the Stamina recommendation will do very little, except insulate you against Debuffers and Rushed, but reaching it is very important. On the flip side, this shows how strong Debuffers are. Reducing the enemy's Stamina by 100 is like reducing their Speed by 300, and Nice Nature can reduce it by like 200~400.
+            </p>
+
+            <h3>Long (3600m, just for fun. Very difficult to have too much Stamina here)</h3>
+            <ul>
+                <li>1200 Speed 1000 Stamina loses to 200 Speed 1200 Stamina</li>
+                <li>1200 Speed 1700 Stamina + 3 Golds loses to 1000 Speed 1700 Stamina + 4 Golds</li>
+                <li>1200 Speed 1200 Stamina + 3 Golds loses to 700 Speed 1200 Stamina + 4 Golds</li>
+                <li>1200 Speed 1150 Stamina + 2 Golds loses to 200 Speed 1200 Stamina + 4 Golds</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer class="text-center py-4">
+        <p class="mb-0">Umapilled Project</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
