@@ -11,7 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
@@ -48,7 +47,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="changelog.html">Changelog</a>
+                        <a class="nav-link active" href="changelog.html">Changelog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -61,69 +60,257 @@
     <!-- banner -->
     <div class="container mt-5">
         <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold" style="color: var(--dark-purple);">Help & Guide</h1>
-            <p class="lead text-muted">Everything you need to know about planning your gacha pulls</p>
+            <h1 class="display-4 fw-bold" style="color: var(--dark-purple);">Help & User Guide</h1>
+            <p class="lead text-muted">How to make the most of the Umapilled Project resources and tools</p>
         </div>
 
-        <!-- About Section -->
-        <div class="card">
+        <!-- Quick Start Section -->
+        <div class="card mb-4">
             <div class="card-header">
-                <h3 class="mb-0"> About This Website</h3>
+                <h3 class="mb-0"><i class="bi bi-lightning me-2"></i> Quick Start Guide</h3>
             </div>
             <div class="card-body">
-                <p class="lead">This website is designed for <strong>Uma Musume Pretty Derby</strong> players who struggle to decide which banners to pull on and how to manage their carrats (gacha currency).</p>
-                <p>Our calculator helps you plan your pulls by calculating your daily carrat income and projecting how many carrots you'll have by the time your desired banner arrives!</p>
+                <p class="lead">Welcome to the Umapilled Project! Here's how to quickly find what you need:</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-primary text-center">
+                            <div class="card-body">
+                                <i class="bi bi-arrow-clockwise" style="font-size: 2.5rem; color: var(--dark-purple);"></i>
+                                <h5 class="mt-3" style="color: var(--dark-purple);">Just Starting?</h5>
+                                <p>Begin with the <strong>New Player Guide</strong> and use the <strong>Banner Planner</strong> to save for your first target character.</p>
+                                <a href="guides/NewPlayer.html" class="btn btn-outline-primary btn-sm">New Player Guide</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-info text-center">
+                            <div class="card-body">
+                                <i class="bi bi-bar-chart" style="font-size: 2.5rem; color: var(--dark-purple);"></i>
+                                <h5 class="mt-3" style="color: var(--dark-purple);">Planning Gacha?</h5>
+                                <p>Use our <strong>Banner Planner</strong> to calculate your savings and plan pulls for upcoming banners.</p>
+                                <a href="Tools/bannerplanner.html" class="btn btn-outline-info btn-sm">Banner Planner</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-success text-center">
+                            <div class="card-body">
+                                <i class="bi bi-trophy" style="font-size: 2.5rem; color: var(--dark-purple);"></i>
+                                <h5 class="mt-3" style="color: var(--dark-purple);">Improving PvP?</h5>
+                                <p>Check the <strong>Tier List</strong> and use <strong>PvP Tools</strong> to optimize your competitive play.</p>
+                                <a href="guides/Tierlist.html" class="btn btn-outline-success btn-sm">Tier List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Features Section -->
-        <div class="card">
+        <!-- Banner Planner Deep Dive -->
+        <div class="card mb-4">
             <div class="card-header">
-                <h3 class="mb-0"> Features</h3>
+                <h3 class="mb-0"><i class="bi bi-calendar-date me-2"></i> Using the Banner Planner</h3>
+            </div>
+            <div class="card-body">
+                <p>The Banner Planner is one of our most popular tools. Here's how to use it effectively:</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
+                                <i class="bi bi-1-circle" style="font-size: 1.5rem; color: var(--dark-purple);"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--dark-purple);">Set Your Current Resources</h5>
+                                <p>Enter your current carrats in the calculator. Be honest with your count—this is your starting point for all calculations.</p>
+                                <div class="alert alert-light small">
+                                    <strong>Tip:</strong> Include both free and paid carrats if you plan to spend money.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
+                                <i class="bi bi-2-circle" style="font-size: 1.5rem; color: var(--dark-purple);"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--dark-purple);">Configure Income Sources</h5>
+                                <p>Set your Arena Class, weekly outcome, and any special events. These values determine your daily/weekly income.</p>
+                                <div class="alert alert-light small">
+                                    <strong>Tip:</strong> If you hover between classes, use the "Hovering between Class 5 and 6" toggle for averaged income.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
+                                <i class="bi bi-3-circle" style="font-size: 1.5rem; color: var(--dark-purple);"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--dark-purple);">Browse and Select Banners</h5>
+                                <p>Use the filters to find upcoming banners. You can filter by year, type (character/support), or search by name.</p>
+                                <div class="alert alert-light small">
+                                    <strong>Tip:</strong> Toggle "Show Missed Banners" to see past banners for reference.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
+                                <i class="bi bi-4-circle" style="font-size: 1.5rem; color: var(--dark-purple);"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--dark-purple);">Set Your Target</h5>
+                                <p>Click the star icon on any banner to set it as your target. The calculator will automatically update with days until that banner.</p>
+                                <div class="alert alert-light small">
+                                    <strong>Tip:</strong> Your target is saved locally, so it will persist between visits.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h5 style="color: var(--dark-purple);">Understanding the Results</h5>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li><strong>Days until banner:</strong> How many days until your target banner starts</li>
+                                    <li><strong>From dailies:</strong> Carrots from daily missions and login bonuses</li>
+                                    <li><strong>From weeklies:</strong> Weekly mission rewards</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li><strong>From PvP rewards:</strong> Arena/Trial rewards based on your class</li>
+                                    <li><strong>Special events & gifts:</strong> Any additional income you specified</li>
+                                    <li><strong>Total carrats:</strong> Your projected total on banner day</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guides Navigation -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3 class="mb-0"><i class="bi bi-book me-2"></i> Finding the Right Guide</h3>
+            </div>
+            <div class="card-body">
+                <p>Our guides are organized by topic. Here's what each one covers:</p>
+                
+                <div class="table-responsive mt-3">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th style="color: var(--dark-purple);">Guide</th>
+                                <th style="color: var(--dark-purple);">Best For</th>
+                                <th style="color: var(--dark-purple);">Key Topics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>New Player Guide</strong></td>
+                                <td>Beginners, first week players</td>
+                                <td>Basic mechanics, early priorities, currency management</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Character Guide</strong></td>
+                                <td>Specific character optimization</td>
+                                <td>Stats, skills, inheritance, training strategies</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scenario Guide</strong></td>
+                                <td>Training optimization</td>
+                                <td>Event choices, optimal paths, scenario mechanics</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stats Guide</strong></td>
+                                <td>Advanced min-maxing</td>
+                                <td>Stat interactions, optimal distributions, race formulas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Support Card Guide</strong></td>
+                                <td>Deck building</td>
+                                <td>Card selection, synergies, upgrade priorities</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tier List</strong></td>
+                                <td>Competitive play</td>
+                                <td>Meta rankings, team compositions, banner priorities</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools Overview -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3 class="mb-0"><i class="bi bi-tools me-2"></i> Tools Reference</h3>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/carat.png" alt="Daily Calculator Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Daily Calculator</h5>
-                                <p>Calculate your daily carrat income from various sources including login bonuses, missions, and events.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/ticket.png" alt="Weekly PVP Trials Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Weekly PVP Trials</h5>
-                                <p>Track your weekly carrot income from Team Trials (PVP) and include it in your calculations.</p>
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: var(--dark-purple);"><i class="bi bi-wrench me-2"></i> General Tools</h5>
+                                <p class="card-text">Collection of utilities for daily gameplay:</p>
+                                <ul>
+                                    <li>Training calculators</li>
+                                    <li>Skill point optimizers</li>
+                                    <li>Resource converters</li>
+                                    <li>Team composition helpers</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/savings.png" alt="Banner Timeline Icon" class="tool-image">
-                            </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Banner Timeline</h5>
-                                <p>Select your target banner and the calculator will estimate how many carrots you'll accumulate by that date.</p>
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: var(--dark-purple);"><i class="bi bi-shield-check me-2"></i> PvP Tools</h5>
+                                <p class="card-text">Tools for competitive Team Trials:</p>
+                                <ul>
+                                    <li>Team builders and analyzers</li>
+                                    <li>Match-up calculators</li>
+                                    <li>Meta trackers</li>
+                                    <li>Reward optimizers</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="feature-icon d-flex align-items-center justify-content-center me-3">
-                                <img src="img/pvp.png" alt="Save & Load Icon" class="tool-image">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: var(--dark-purple);"><i class="bi bi-award me-2"></i> Championship Tools</h5>
+                                <p class="card-text">Specialized tools for Champions Meeting:</p>
+                                <ul>
+                                    <li>Race simulators</li>
+                                    <li>Opponent analysis</li>
+                                    <li>Strategy planners</li>
+                                    <li>Score optimizers</li>
+                                </ul>
                             </div>
-                            <div>
-                                <h5 style="color: var(--dark-purple);">Save & Load</h5>
-                                <p>Save your calculations and load them later. Never lose track of your planning!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: var(--dark-purple);"><i class="bi bi-calendar-date me-2"></i> Banner Planner</h5>
+                                <p class="card-text">Comprehensive gacha planning:</p>
+                                <ul>
+                                    <li>Interactive banner timeline</li>
+                                    <li>Carrat calculator</li>
+                                    <li>Target tracking</li>
+                                    <li>Pull projections</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -131,109 +318,173 @@
             </div>
         </div>
 
-        <!-- How to Use -->
-        <div class="card">
+        <!-- Tips & Best Practices -->
+        <div class="card mb-4">
             <div class="card-header">
-                <h3 class="mb-0">How to Use</h3>
+                <h3 class="mb-0"><i class="bi bi-lightbulb me-2"></i> Tips & Best Practices</h3>
             </div>
             <div class="card-body">
-                <ol class="list-group list-group-numbered">
-                    <li class="list-group-item">
-                        <strong>Enter Your Current Carrots:</strong> Input how many carrots you currently have in your account.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Set Daily Income:</strong> Enter your daily carrot income from dailies, missions, and login bonuses.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Add Weekly PVP:</strong> Include your weekly Team Trials rewards (converted to daily average).
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Select Target Banner:</strong> Choose which upcoming banner you want to pull on.
-                    </li>
-                    <li class="list-group-item">
-                        <strong>View Results:</strong> See the projected number of carrots you'll have by the banner date!
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Save Your Plan:</strong> Use the save feature to keep your calculations for future reference.
-                    </li>
-                </ol>
-            </div>
-        </div>
-
-        <!-- Tips & Tricks -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> Tips & Tricks</h3>
-            </div>
-            <div class="card-body">
-                <div class="alert alert-info">
-                    <strong>Pro Tip:</strong> Remember to update your daily income when new events start or when you rank up in Team Trials!
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="alert alert-info">
+                            <strong>Pro Tip:</strong> Always add a 10-20% buffer to your Banner Planner calculations for unexpected events or maintenance rewards.
+                        </div>
+                        <ul>
+                            <li><strong>Update regularly:</strong> Revisit the Banner Planner weekly to adjust for any changes in your Arena rank or event participation.</li>
+                            <li><strong>Use filters:</strong> The banner timeline has powerful filters—use them to focus on specific character types or time periods.</li>
+                            <li><strong>Check external resources:</strong> Our External Resources guide links to Japanese databases that show banners 4 years ahead.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="alert alert-warning">
+                            <strong>Common Mistake:</strong> Forgetting to include event rewards in your special events calculation. Check current and upcoming events regularly!
+                        </div>
+                        <ul>
+                            <li><strong>Save targets:</strong> The Banner Planner saves your target locally—use this to track progress toward multiple banners.</li>
+                            <li><strong>Combine guides:</strong> Use the Character Guide with the Scenario Guide for optimal training paths.</li>
+                            <li><strong>Seasonal adjustments:</strong> Some tools (like PvP) may need adjustment based on current meta or season.</li>
+                        </ul>
+                    </div>
                 </div>
-                <ul>
-                    <li>Always add a buffer to your calculations - unexpected events can give bonus carrots!</li>
-                    <li>Check the Japanese server timeline (4 years ahead) to plan for future banners.</li>
-                    <li>Consider saving carrots for limited banners rather than permanent ones.</li>
-                    <li>Don't forget to include event rewards in your calculations.</li>
-                </ul>
             </div>
         </div>
 
-        <!-- External Resources -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0"> Helpful Resources</h3>
-            </div>
-            <div class="card-body">
-                <h5 style="color: var(--dark-purple);">Japanese Game Info</h5>
-                <p>For future banner predictions and game information from the Japanese server (which is 4 years ahead of global):</p>
-                <a href="https://gametora.com/umamusume" target="_blank" class="btn btn-primary">
-                    Visit GameTora Wiki
-                </a>
-                <p class="mt-3 text-muted"><small>Note: The Japanese server provides valuable insight into upcoming content, characters, and events that will eventually come to the global version.</small></p>
-            </div>
-        </div>
-
-        <!-- FAQ -->
+        <!-- Troubleshooting -->
         <div class="card mb-5">
             <div class="card-header">
-                <h3 class="mb-0"> Frequently Asked Questions</h3>
+                <h3 class="mb-0"><i class="bi bi-wrench me-2"></i> Troubleshooting & FAQ</h3>
             </div>
             <div class="card-body">
                 <div class="accordion" id="faqAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                Minimum saved carrats?
+                                My Banner Planner isn't showing any banners
                             </button>
                         </h2>
                         <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                You'd need to typically save around 20k or garaunteed 200 pulls to hit Hard Pity. That way you'd have at least one copy when luck doesn't play with your fate.
+                                Try these steps:
+                                <ol>
+                                    <li>Check if you have "Show Missed Banners" toggled off while viewing past dates</li>
+                                    <li>Clear any search filters that might be hiding banners</li>
+                                    <li>Try selecting "All Years" in the year filter</li>
+                                    <li>Refresh the page - sometimes the banner data needs to reload</li>
+                                </ol>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                How accurate is the calculator?
+                                How accurate is the Banner Planner calculator?
                             </button>
                         </h2>
                         <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                The calculator provides estimates based on your input. Actual results may vary due to unexpected events, bonuses, or changes in your daily routine. such as the Goldship Event By the end of the Anime Collabs
+                                The calculator provides estimates based on:
+                                <ul>
+                                    <li>Your current carrat count</li>
+                                    <li>Configured daily/weekly income</li>
+                                    <li>Days until the target banner</li>
+                                </ul>
+                                <strong>Note:</strong> Actual results may vary due to:
+                                <ul>
+                                    <li>Unexpected events or maintenance rewards</li>
+                                    <li>Changes in your Arena rank</li>
+                                    <li>Special login campaigns</li>
+                                    <li>Global banner schedule variations</li>
+                                </ul>
+                                Always add a buffer of 10-20% to your calculations.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                Can I use this for multiple banners?
+                                Can I plan for multiple banners at once?
                             </button>
                         </h2>
                         <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Yeah kinda, you can use it to save the config and load it later. I'll make it a feature soon.
+                                Currently, the Banner Planner allows you to set <strong>one target banner at a time</strong>. However, you can:
+                                <ul>
+                                    <li>Save your current configuration</li>
+                                    <li>Calculate for one banner, note the results</li>
+                                    <li>Reset and calculate for another banner</li>
+                                    <li>Compare the results manually</li>
+                                </ul>
+                                We're working on a multi-banner planning feature for future updates!
                             </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Why are some banner dates different from what I expected?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our banner timeline is based on the <strong>Japanese server schedule</strong>, which is approximately 4 years ahead of the global version. However:
+                                <ul>
+                                    <li>Global sometimes gets banners in a different order</li>
+                                    <li>Timing may be adjusted for global events/holidays</li>
+                                    <li>Some banners may be skipped or combined</li>
+                                </ul>
+                                Use our timeline as a <strong>general guide</strong> for what's coming, but always check official announcements for exact global dates.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                Minimum saved carrats for guaranteed pull?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                You need <strong>200 pulls</strong> (equivalent to 20,000 carrats) to hit hard pity for a guaranteed character. The Banner Planner will show you how close you are to this goal based on your target banner date.
+                                <div class="alert alert-warning mt-2 mb-0">
+                                    <strong>Remember:</strong> This is for the spark/pity system. You could get the character earlier, but 200 pulls guarantees at least one copy.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Getting More Help -->
+        <div class="card mb-5">
+            <div class="card-header">
+                <h3 class="mb-0"><i class="bi bi-chat-dots me-2"></i> Need More Help?</h3>
+            </div>
+            <div class="card-body text-center">
+                <p class="lead">Still have questions or found an issue?</p>
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3">
+                            <i class="bi bi-journal-text" style="font-size: 2rem; color: var(--dark-purple);"></i>
+                            <h5 class="mt-3" style="color: var(--dark-purple);">Check the Changelog</h5>
+                            <p>See recent updates and bug fixes</p>
+                            <a href="changelog.html" class="btn btn-outline-primary">View Changelog</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3">
+                            <i class="bi bi-info-circle" style="font-size: 2rem; color: var(--dark-purple);"></i>
+                            <h5 class="mt-3" style="color: var(--dark-purple);">About the Project</h5>
+                            <p>Learn more about Umapilled</p>
+                            <a href="about.html" class="btn btn-outline-primary">About Page</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3">
+                            <i class="bi bi-box-arrow-up-right" style="font-size: 2rem; color: var(--dark-purple);"></i>
+                            <h5 class="mt-3" style="color: var(--dark-purple);">External Resources</h5>
+                            <p>Community resources and databases</p>
+                            <a href="guides/ExternalResources.html" class="btn btn-outline-primary">External Resources</a>
                         </div>
                     </div>
                 </div>
@@ -244,7 +495,8 @@
     <!-- Footer -->
     <footer class="text-center py-4 mt-5" style="background-color: var(--light-purple);">
         <div class="container">
-            <p class="mb-0" style="color: var(--dark-purple);">Uma Musume Gacha Calculator | Plan Your Pulls Wisely and don't be an idiot like me</p>
+            <p class="mb-0" style="color: var(--dark-purple);">Umapilled Project Help Center | Your guide to smarter Uma Musume gameplay</p>
+            <p class="small mt-2" style="color: var(--dark-purple);">Questions? Check the FAQ above or explore our comprehensive guides and tools!</p>
         </div>
     </footer>
 
